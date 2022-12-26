@@ -1,2 +1,10 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import Countdown from '../lib/components/Countdown/Countdown.svelte';
+</script>
+
+<div class="flex justify-center h-screen">
+    <div class="flex flex-col justify-center">
+        <h1 class="text-3xl font-bold underline text-red-300">Fruitbowl 2023</h1>    
+        <Countdown />
+    </div>
+</div>
