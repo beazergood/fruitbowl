@@ -3,7 +3,7 @@
 </script>
 
 <div class="flex justify-center h-screen">
-    <div class="flex flex-col justify-center">
+    <div class="flex flex-col ">
         <Countdown />
     </div>
 </div>
