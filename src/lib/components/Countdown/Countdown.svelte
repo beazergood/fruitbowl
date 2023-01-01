@@ -75,16 +75,17 @@
 	function getWeather() {
 		weatherData = new Promise((resolve, reject) => {
 			return fetch(
-				'http://api.weatherstack.com/current?access_key=0e6f1d61b35de4fd34e0d95be159c017&query=Palm%20Desert&units=f'
+				"https://api.open-meteo.com/v1/forecast?latitude=33.72&longitude=-116.38&daily=weathercode,sunrise,sunset&current_weather=true&temperature_unit=fahrenheit&timezone=America%2FLos_Angeles"
+				// 'http://api.weatherstack.com/current?access_key=0e6f1d61b35de4fd34e0d95be159c017&query=Palm%20Desert&units=f'
 			)
 				.then((response) => response.json())
 				.then((response) => {
-					// console.log(response);
+					console.log(response);
 					const apiResponse = response;
-					console.log(
-						`Current temperature in ${apiResponse.location.name} is ${apiResponse.current.temperature}℃`
-					);
-					weatherData = apiResponse.current;
+					// console.log(
+					// 	`Current temperature in ${apiResponse.location.name} is ${apiResponse.current.temperature}℃`
+					// );
+					weatherData = apiResponse;
 					return resolve(weatherData);
 				})
 				.catch((error) => {
@@ -100,7 +101,7 @@
 	class="flex flex-col gap-4 justify-start w-screen h-screen bg-no-repeat bg-contain p-4 pt-10 bg-green-700 {bgImage}"
 >
 	<!-- Info widget -->
-	<div class="bg-white/50 mt-10 flex flex-col p-4 rounded-lg">
+	<div class="bg-white/50 mt-10 flex flex-col p-2 rounded-lg">
 		<h1 class="text-3xl font-bold text-center text-gray-700">Fruitbowl 2023</h1>
 		<h3 class="text-xl font-bold text-center text-gray-700">🫐 🍉 🍊 🥑</h3>
 		<h3 class="text-lg font-bold text-center text-gray-700">Palm Desert, CA 🇺🇸</h3>
@@ -113,7 +114,7 @@
 		<h1 class="text-3xl font-bold text-center text-gray-700 -mt-4">
 			<span class="text-lg mr-2">In</span>{diffInDays} Days
 		</h1>
-		<h3 class="text-3xl font-bold text-center text-gray-700">17 - 20 Feb, 2023</h3>
+		<h3 class="text-xl font-bold text-center text-gray-700">17 - 20 Feb, 2023</h3>
 	</div>
 
 	<!-- Weather widget -->
@@ -124,11 +125,11 @@
 			<p>Loading...</p>
 		{:then weatherData}
 			<div class="flex flex-row space-between px-4 justify-between items-center">
-				<span class="text-2xl">
-					{weatherData?.temperature}
+				<span class="text-2xl ">
+					{Math.floor(weatherData?.current_weather?.temperature)}&deg;
 				</span>
 				<span class="text-2xl">
-					{weatherData?.weather_descriptions[0]}
+					<!-- {weatherData?.weather_descriptions[0]} -->
 				</span>
 				{#if weatherData?.weather_icons}
 					{#each weatherData?.weather_icons as icon}
@@ -155,10 +156,10 @@
 	<div class="bg-white/80 flex flex-col p-4 rounded-lg border-2 border-white">
 		<h1 class="text-md text-left lext-lg text-gray-700">Accomodation</h1>
 		<p>Welcome to the Desert Oasis.</p>
-<p>	Spacious private home with pool and spa, fire pit, waterfall, putting green, built in barbecue covered patio, 8 lounge chairs and gated RV parking or parking behind private electric gates for 6 cars.
+<p>	Spacious private home with pool and spa, fire pit, waterfall, putting green, built in barbecue...
 	<a href="https://www.airbnb.co.uk/rooms/44003044?adults=8&location=Palm%20Springs%2C%20CA&check_in=2023-02-17&check_out=2023-02-20&federated_search_id=2ca6f13f-d1c2-4dc2-8e2a-71446bba50ea&source_impression_id=p3_1671755961_%2FpVKSXwlIuRsC%20N9&_set_bev_on_new_domain=1672532399_ZjE0MjAyZmQ0Njhj" 
 	target="_blank"
-	class="text-blue-600">See the house</a>
+	class="text-blue-600">#tooMuch</a>
 </p>
 	</div>
 
