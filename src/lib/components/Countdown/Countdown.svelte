@@ -238,7 +238,7 @@
 
 	<!-- Date Countdown widget -->
 	<div class="bg-white/80 flex flex-col p-2 rounded-lg border-2 border-white">
-		<h1 class="text-md text-left text-gray-700">📅 When</h1>
+		<h1 class="text-md text-left text-gray-700 font-semibold">📅 When</h1>
 
 		<h1 class="text-3xl font-bold text-center text-gray-700 -mt-4">
 			<span class="text-lg mr-2">In</span>{diffInDays} Days
@@ -248,7 +248,7 @@
 
 	<!-- Weather widget -->
 	<div class="bg-white/80 flex flex-col p-1 rounded-lg border-2 border-white">
-		<h1 class="text-md text-left text-gray-700">🌦️ Weather</h1>
+		<h1 class="text-md text-left text-gray-700 font-semibold">🌦️ Weather</h1>
 
 		{#await weatherData}
 			<p>Loading...</p>
@@ -273,13 +273,13 @@
 
 	<!-- Map widget TODO: add mapbox map -->
 	<div class="bg-white/80 flex flex-col z-0 rounded-lg border-2 border-white relative">
-		<h1 class="text-md absolute top-1 bg-white/60 p-1 left-2 rounded-lg z-10 text-left text-gray-700 mb-2">📍 Where</h1>
+		<h1 class="text-md absolute top-1 bg-white/60 p-1 left-2 rounded-lg z-10 text-left text-gray-700 mb-2 font-semibold">📍 Where</h1>
 		<div id="map" class="block w-100 h-64" />
 	</div>
 
 	<!-- Transport widget -->
 	<div class="bg-white/80 flex flex-col p-2 rounded-lg border-2 border-white">
-		<h1 class="text-md text-left text-gray-700 mb-2">✈️ Transport</h1>
+		<h1 class="text-md text-left text-gray-700 mb-2 font-semibold">✈️ Transport</h1>
 		<p class="text-sm">Outbound</p>
 		<div class="flex flex-row justify-between">
 			<p>{outboundDate}</p>
@@ -297,7 +297,7 @@
 
 	<!-- Accomodation widget -->
 	<div class="bg-white/80 flex flex-col p-2 rounded-lg border-2 border-white">
-		<h1 class="text-md text-left lext-lg text-gray-700">🏡 Accommodation</h1>
+		<h1 class="text-md text-left lext-lg text-gray-700 font-semibold">🏡 Accommodation</h1>
 		<p>{event.accommodation.name}</p>
 		<p>
 			{event.accommodation.description}
@@ -307,7 +307,7 @@
 
 	<!-- Itinerary widget -->
 	<div class="bg-white/80 flex flex-col p-2 rounded-lg border-2 border-white">
-		<h1 class="text-md text-left lext-lg text-gray-700">🔖 Itinerary</h1>
+		<h1 class="text-md text-left lext-lg text-gray-700 font-semibold">🔖 Itinerary</h1>
 		<ul>
 			{#each event.itinerary as item}
 				<li>{item}</li>
