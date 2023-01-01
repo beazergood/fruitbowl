@@ -73,11 +73,111 @@
 		mapboxgl.accessToken =
 			'pk.eyJ1Ijoid2ViamFtIiwiYSI6ImNsY2F5Nnl4ajBvNG0zd21wcXpmdnBnaW4ifQ.heID-NEZK16RJc8YuqN5BA';
 
-		new mapboxgl.Map({
+		const map = new mapboxgl.Map({
 			container: 'map',
-			style: 'mapbox://styles/mapbox/light-v10',
-			center: [-116.54, 33.8],
+			style: 'mapbox://styles/mapbox/streets-v12',
+			center: [-116.375, 33.7222],
 			zoom: 10
+		});
+
+		const geojson = {
+			type: 'FeatureCollection',
+			features: [
+				{
+					type: 'Feature',
+					properties: {
+						description: '<p>Desert Willow Golf Resort</p>',
+						iconSize: [24, 24]
+					},
+					geometry: {
+						type: 'Point',
+						coordinates: [-116.366, 33.765]
+					}
+				},
+				{
+					type: 'Feature',
+					properties: {
+						description: '<strong>Bighorn Golf Club</strong>',
+						iconSize: [24, 24]
+					},
+					geometry: {
+						type: 'Point',
+						coordinates: [-116.243, 33.405]
+					}
+				},
+				{
+					type: 'Feature',
+					properties: {
+						description:
+							'<strong>Big Backyard Beach Bash and Wine Fest</strong><p>EatBar (2761 Washington Boulevard Arlington VA) is throwing a <a href="http://tallulaeatbar.ticketleap.com/2012beachblanket/" target="_blank" title="Opens in a new window">Big Backyard Beach Bash and Wine Fest</a> on Saturday, serving up conch fritters, fish tacos and crab sliders, and Red Apron hot dogs. 12:00-3:00 p.m. $25.grill hot dogs.</p>',
+						iconSize: [24, 24]
+					},
+					geometry: {
+						type: 'Point',
+						coordinates: [-77.090, 38.881]
+					}
+				}
+			]
+		};
+
+		map.on('load', () => {
+			// Load an image from an external URL.
+			// map.loadImage('https://docs.mapbox.com/mapbox-gl-js/assets/cat.png', (error, image) => {
+			// 	if (error) throw error;
+
+			// 	// Add the image to the map style.
+			// 	if (image) {
+			// 		map.addImage('cat', image);
+			// 	}
+
+			// 	// Add a data source containing one point feature.
+			// 	map.addSource('point', {
+			// 		type: 'geojson',
+			// 		data: {
+			// 			type: 'FeatureCollection',
+			// 			features: [
+			// 				{
+			// 					type: 'Feature',
+			// 					properties: {
+			// 						description: '<strong>Bighorn Golf Club</strong>',
+			// 						icon: 'theatre'
+			// 					},
+			// 					geometry: {
+			// 						type: 'Point',
+			// 						coordinates: [-116.366, 33.765]
+			// 					}
+			// 				}
+			// 			]
+			// 		}
+			// 	});
+
+			// 	// Add a layer to use the image to represent the data.
+			// 	map.addLayer({
+			// 		id: 'points',
+			// 		type: 'symbol',
+			// 		source: 'point', // reference the data source
+			// 		layout: {
+			// 			'icon-image': 'cat', // reference the image
+			// 			'icon-size': 0.15
+			// 		}
+			// 	});
+			// });
+
+			for (const marker of geojson.features) {
+				// Create a DOM element for each marker.
+				const el = document.createElement('div');
+				const width = marker.properties.iconSize[0];
+				const height = marker.properties.iconSize[1];
+				el.className = 'marker';
+				el.style.backgroundImage = `url(icons/12-arrow-down-solid.gif)`; // 46-notification-bell-solid.gif
+				el.style.width = `${width}px`;
+				el.style.height = `${height}px`;
+				el.style.backgroundSize = '100%';
+				el.style.borderRadius = '50%';
+
+				// Add markers to the map.
+				new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates).addTo(map);
+			}
 		});
 	});
 
@@ -153,8 +253,7 @@
 
 	<!-- Map widget TODO: add mapbox map -->
 	<div class="bg-white/80 flex flex-col rounded-lg border-2 border-white">
-		<h1 class="text-md font-bold text-left text-gray-700 p-2">Where</h1>
-		<div id="map" class="block w-100 h-44" />
+		<div id="map" class="block w-100 h-64" />
 	</div>
 
 	<!-- Transport widget -->
@@ -197,3 +296,18 @@
 		</ul>
 	</div>
 </div>
+
+<style>
+	.mapboxgl-popup {
+		max-width: 400px;
+		font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	}
+
+	.marker {
+		display: block;
+		border: none;
+		border-radius: 50%;
+		cursor: pointer;
+		padding: 0;
+	}
+</style>
