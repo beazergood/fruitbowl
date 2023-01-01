@@ -12,6 +12,8 @@ module.exports = {
         'golf-7': "url('/images/IMG_4493.jpeg')",
         'golf-8': "url('/images/IMG_4496.jpeg')",
         'golf-9': "url('/images/IMG_4502.jpeg')",
+        'ski-1': "url('/images/saalbach_1.jpg')",
+        'ski-2': "url('/images/saalbach_2.jpg')",
       }
     },
   },

@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { DateTime } from 'luxon';
-	import mapboxgl from 'mapbox-gl';
+	import mapboxgl, { type EventData } from 'mapbox-gl';
 	import { onMount } from 'svelte';
+
+	import type { Event } from './$types';
+
+	export let event: Event;
 	/**
 	 * @type {any[]}
 	 */
@@ -9,17 +13,7 @@
 	/**
 	 * @description Array of background classes
 	 */
-	const bgClasses = [
-		'bg-golf-1',
-		'bg-golf-2',
-		'bg-golf-3',
-		'bg-golf-4',
-		'bg-golf-5',
-		'bg-golf-6',
-		'bg-golf-7',
-		'bg-golf-8',
-		'bg-golf-9'
-	];
+	const bgClasses = event.meta.bgImageClasses;
 	/***
 	 * @description The difference in days between the start and end date
 	 */
@@ -64,7 +58,7 @@
 	onMount(async () => {
 		bgImage = bgClasses[randomIx()];
 
-		var end = DateTime.fromISO('2023-02-17'); // the start date of the event
+		var end = DateTime.fromISO(event.startDate); // the start date of the event
 		var start = DateTime.now();
 
 		diffInDays = Math.floor(end.diff(start, 'days').toObject().days);
@@ -76,7 +70,7 @@
 		const map = new mapboxgl.Map({
 			container: 'map',
 			style: 'mapbox://styles/mapbox/streets-v12',
-			center: [-116.375, 33.7222],
+			center: [event.location.lng, event.location.lat],
 			zoom: 10
 		});
 
@@ -114,7 +108,7 @@
 					},
 					geometry: {
 						type: 'Point',
-						coordinates: [-77.090, 38.881]
+						coordinates: [-77.09, 38.881]
 					}
 				}
 			]
@@ -184,36 +178,62 @@
 	function getWeather() {
 		weatherData = new Promise((resolve, reject) => {
 			return fetch(
-				'https://api.open-meteo.com/v1/forecast?latitude=33.72&longitude=-116.38&daily=weathercode,sunrise,sunset&current_weather=true&temperature_unit=fahrenheit&timezone=America%2FLos_Angeles'
-				// 'http://api.weatherstack.com/current?access_key=0e6f1d61b35de4fd34e0d95be159c017&query=Palm%20Desert&units=f'
+				`https://api.open-meteo.com/v1/forecast?latitude=${event.location.lat}&longitude=${
+					event.location.lng
+				}&daily=weathercode,sunrise,sunset&current_weather=true&temperature_unit=${
+					event.location.temperatureGuage === 'F' ? 'fahrenheit' : 'celsius'
+				}&timezone=${event.location.timezone}`
 			)
 				.then((response) => response.json())
 				.then((response) => {
-					console.log(response);
 					const apiResponse = response;
-					// console.log(
-					// 	`Current temperature in ${apiResponse.location.name} is ${apiResponse.current.temperature}℃`
-					// );
 					weatherData = apiResponse;
 					return resolve(weatherData);
 				})
 				.catch((error) => {
-					console.log(error);
 					return reject(error);
 				});
 		});
 	}
 	getWeather();
+
+	let displayDates = '';
+	let outboundDate = '';
+	let outboundTakeoff = '';
+	let outboundLanding = '';
+
+	let inboundDate = '';
+	let inboundTakeoff = '';
+	let inboundLanding = '';
+
+	function setDateStrings() {
+		// 17 - 20 Feb, 2023
+		const startDate = DateTime.fromISO(event.startDate).toFormat('dd MMM');
+		const endDate = DateTime.fromISO(event.endDate).toFormat('dd MMM yy');
+		displayDates = `${startDate} - ${endDate}`;
+
+		outboundDate = DateTime.fromISO(event.transport.outbound.from.date).toFormat('dd MMM yy');
+		outboundTakeoff = DateTime.fromISO(event.transport.outbound.from.time).toFormat('HH:mm');
+		outboundLanding = DateTime.fromISO(event.transport.outbound.to.time).toFormat('HH:mm');
+
+		inboundDate = DateTime.fromISO(event.transport.inbound.from.date).toFormat('dd MMM yy');
+		inboundTakeoff = DateTime.fromISO(event.transport.inbound.from.time).toFormat('HH:mm');
+		inboundLanding = DateTime.fromISO(event.transport.inbound.to.time).toFormat('HH:mm');
+	}
+	setDateStrings();
 </script>
 
 <div
-	class="flex flex-col gap-4 justify-start w-screen pt-10 bg-no-repeat bg-contain p-4 bg-green-700 {bgImage}"
+	class="flex flex-col gap-4 justify-start w-screen pt-10 bg-no-repeat bg-contain p-4 {event.meta
+		.bgColorClass} {bgImage}"
 >
 	<!-- Info widget -->
 	<div class="bg-white/50 mt-10 flex flex-col p-2 rounded-lg">
-		<h1 class="text-3xl font-bold text-center text-gray-700">Fruitbowl 2023</h1>
-		<h3 class="text-xl font-bold text-center text-gray-700">🫐 🍉 🍊 🥑</h3>
-		<h3 class="text-lg font-bold text-center text-gray-700">Palm Desert, CA 🇺🇸</h3>
+		<h1 class="text-3xl font-bold text-center text-gray-700">{event.name}</h1>
+		<h3 class="text-xl font-bold text-center text-gray-700">{event.emoji}</h3>
+		<h3 class="text-lg font-bold text-center text-gray-700">
+			{event.location.city}, {event.location.state}
+		</h3>
 	</div>
 
 	<!-- Date Countdown widget -->
@@ -223,7 +243,7 @@
 		<h1 class="text-3xl font-bold text-center text-gray-700 -mt-4">
 			<span class="text-lg mr-2">In</span>{diffInDays} Days
 		</h1>
-		<h3 class="text-xl font-bold text-center text-gray-700">17 - 20 Feb, 2023</h3>
+		<h3 class="text-xl font-bold text-center text-gray-700">{displayDates}</h3>
 	</div>
 
 	<!-- Weather widget -->
@@ -259,29 +279,28 @@
 	<!-- Transport widget -->
 	<div class="bg-white/80 flex flex-col p-4 rounded-lg border-2 border-white">
 		<h1 class="text-md font-bold text-left text-gray-700">Transport</h1>
-		<p>Outbound</p>
-		<p>Thu 16 Feb</p>
-		<p>LHR > LAX</p>
-		<p>🛫 10:00 🛬 15:30</p>
+		<p class="text-sm">Outbound</p>
+		<div class="flex flex-row justify-between">
+			<p>{outboundDate}</p>
+			<p>{event.transport.outbound.from.airport} > {event.transport.outbound.to.airport}</p>
+			<p>🛫 {outboundTakeoff} 🛬 {outboundLanding}</p>
+		</div>
 
-		<p>Inbound</p>
-		<p>Mon 20 Feb</p>
-		<p>LAX > LHR</p>
-		<p>🛫 22:00 🛬 16:30</p>
+		<p class="text-sm">Inbound</p>
+		<div class="flex flex-row justify-between">
+			<p>{inboundDate}</p>
+			<p>{event.transport.inbound.from.airport} > {event.transport.inbound.to.airport}</p>
+			<p>🛫 {inboundTakeoff} 🛬 {inboundLanding}</p>
+		</div>
 	</div>
 
 	<!-- Accomodation widget -->
 	<div class="bg-white/80 flex flex-col p-4 rounded-lg border-2 border-white">
-		<h1 class="text-md text-left lext-lg text-gray-700">Accomodation</h1>
-		<p>Welcome to the Desert Oasis.</p>
+		<h1 class="text-md text-left lext-lg text-gray-700">Accommodation</h1>
+		<p>{event.accommodation.name}</p>
 		<p>
-			Spacious private home with pool and spa, fire pit, waterfall, putting green, built in
-			barbecue...
-			<a
-				href="https://www.airbnb.co.uk/rooms/44003044?adults=8&location=Palm%20Springs%2C%20CA&check_in=2023-02-17&check_out=2023-02-20&federated_search_id=2ca6f13f-d1c2-4dc2-8e2a-71446bba50ea&source_impression_id=p3_1671755961_%2FpVKSXwlIuRsC%20N9&_set_bev_on_new_domain=1672532399_ZjE0MjAyZmQ0Njhj"
-				target="_blank"
-				class="text-blue-600">#tooMuch</a
-			>
+			{event.accommodation.description}
+			<a href={event.accommodation.url} target="_blank" class="text-blue-600">View Link</a>
 		</p>
 	</div>
 
@@ -289,10 +308,9 @@
 	<div class="bg-white/80 flex flex-col p-4 rounded-lg border-2 border-white">
 		<h1 class="text-md text-left lext-lg text-gray-700">Itinerary</h1>
 		<ul>
-			<li>2/17 - Arrive LA, drive to Palm Desert</li>
-			<li>2/18 - 18 Holes @ Cactus Canyon</li>
-			<li>2/19 - 36 Holes @ Desert Run</li>
-			<li>2/20 - 18 Holes @ Rustic Canyon</li>
+			{#each event.itinerary as item}
+				<li>{item}</li>
+			{/each}
 		</ul>
 	</div>
 </div>
