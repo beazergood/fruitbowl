@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { DateTime } from 'luxon';
-	import mapboxgl, { type EventData } from 'mapbox-gl';
+	import mapboxgl from 'mapbox-gl';
 	import { onMount } from 'svelte';
 
 	import type { Event } from './$types';
@@ -18,32 +18,6 @@
 	 * @description The difference in days between the start and end date
 	 */
 	let diffInDays: number;
-	/**
-	 * @description weather data
-	 * {
-	
-		"observation_time": "11:31 PM",
-		"temperature": 17,
-		"weather_code": 116,
-		"weather_icons": [
-			"https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0002_sunny_intervals.png"
-		],
-		"weather_descriptions": [
-			"Partly cloudy"
-		],
-		"wind_speed": 7,
-		"wind_degree": 170,
-		"wind_dir": "S",
-		"pressure": 1013,
-		"precip": 0,
-		"humidity": 71,
-		"cloudcover": 75,
-		"feelslike": 17,
-		"uv_index": 4,
-		"visibility": 16,
-		"is_day": "yes"
-}
-	*/
 	let weatherData: any;
 
 	/**
@@ -73,46 +47,6 @@
 			center: [event.location.lng, event.location.lat],
 			zoom: 10
 		});
-
-		const geojson = {
-			type: 'FeatureCollection',
-			features: [
-				{
-					type: 'Feature',
-					properties: {
-						description: '<p>Desert Willow Golf Resort</p>',
-						iconSize: [24, 24]
-					},
-					geometry: {
-						type: 'Point',
-						coordinates: [-116.366, 33.765]
-					}
-				},
-				{
-					type: 'Feature',
-					properties: {
-						description: '<strong>Bighorn Golf Club</strong>',
-						iconSize: [24, 24]
-					},
-					geometry: {
-						type: 'Point',
-						coordinates: [-116.243, 33.405]
-					}
-				},
-				{
-					type: 'Feature',
-					properties: {
-						description:
-							'<strong>Big Backyard Beach Bash and Wine Fest</strong><p>EatBar (2761 Washington Boulevard Arlington VA) is throwing a <a href="http://tallulaeatbar.ticketleap.com/2012beachblanket/" target="_blank" title="Opens in a new window">Big Backyard Beach Bash and Wine Fest</a> on Saturday, serving up conch fritters, fish tacos and crab sliders, and Red Apron hot dogs. 12:00-3:00 p.m. $25.grill hot dogs.</p>',
-						iconSize: [24, 24]
-					},
-					geometry: {
-						type: 'Point',
-						coordinates: [-77.09, 38.881]
-					}
-				}
-			]
-		};
 
 		map.on('load', () => {
 			// Load an image from an external URL.
@@ -157,7 +91,7 @@
 			// 	});
 			// });
 
-			for (const marker of geojson.features) {
+			for (const marker of event.geoWaypoints.features) {
 				// Create a DOM element for each marker.
 				const el = document.createElement('div');
 				const width = marker.properties.iconSize[0];
@@ -255,6 +189,7 @@
 		{:then weatherData}
 			<!-- <div class="flex flex-row space-between px-4 justify-between items-center"> -->
 			<h1 class="text-2xl text-center">
+				<!-- <span class="text-lg">Currently</span> -->
 				{Math.floor(weatherData?.current_weather?.temperature)}&deg;
 			</h1>
 			<!-- <span class="text-2xl"> -->
@@ -273,35 +208,63 @@
 
 	<!-- Map widget TODO: add mapbox map -->
 	<div class="bg-white/80 flex flex-col z-0 rounded-lg border-2 border-white relative">
-		<h1 class="text-md absolute top-1 bg-white/60 p-1 left-2 rounded-lg z-10 text-left text-gray-700 mb-2 font-semibold">📍 Where</h1>
+		<h1
+			class="text-md absolute top-1 bg-white/60 p-1 left-2 rounded-lg z-10 text-left text-gray-700 mb-2 font-semibold"
+		>
+			📍 Where
+		</h1>
 		<div id="map" class="block w-100 h-64" />
 	</div>
 
 	<!-- Transport widget -->
 	<div class="bg-white/80 flex flex-col p-2 rounded-lg border-2 border-white">
 		<h1 class="text-md text-left text-gray-700 mb-2 font-semibold">✈️ Transport</h1>
-		<p class="text-sm">Outbound</p>
+		<div class="flex justify-between">
+			<p class="text-sm">Outbound</p>
+			<div class="text-sm w-28 flex justify-around">
+				<span>🛫</span>
+				<span>🛬 </span>
+			</div>
+		</div>
 		<div class="flex flex-row justify-between">
 			<p>{outboundDate}</p>
 			<p>{event.transport.outbound.from.airport} > {event.transport.outbound.to.airport}</p>
-			<p>🛫 {outboundTakeoff} 🛬 {outboundLanding}</p>
+			<div>
+				<p>{outboundTakeoff} - {outboundLanding}</p>
+				{#if event.transport.outbound.from.flight}
+					<p class="text-xs text-center">{event.transport.outbound.from.flight}</p>
+				{/if}
+			</div>
 		</div>
 
-		<p class="text-sm">Inbound</p>
+		<div class="flex justify-between">
+			<p class="text-sm">Inbound</p>
+			<div class="text-sm w-28 flex justify-around">
+				<span>🛫</span>
+				<span>🛬 </span>
+			</div>
+		</div>
 		<div class="flex flex-row justify-between">
 			<p>{inboundDate}</p>
 			<p>{event.transport.inbound.from.airport} > {event.transport.inbound.to.airport}</p>
-			<p>🛫 {inboundTakeoff} 🛬 {inboundLanding}</p>
+			<div>
+				<p>{inboundTakeoff} - {inboundLanding}</p>
+				{#if event.transport.inbound.from.flight}
+					<p class="text-xs text-center">{event.transport.inbound.from.flight}</p>
+				{/if}
+			</div>
 		</div>
 	</div>
 
 	<!-- Accomodation widget -->
 	<div class="bg-white/80 flex flex-col p-2 rounded-lg border-2 border-white">
 		<h1 class="text-md text-left lext-lg text-gray-700 font-semibold">🏡 Accommodation</h1>
-		<p>{event.accommodation.name}</p>
-		<p>
+		<p class="text-sm font-medium mt-2">{event.accommodation.name}</p>
+		<p class="text-sm">
 			{event.accommodation.description}
-			<a href={event.accommodation.url} target="_blank" class="text-blue-600">View Link</a>
+			<a href={event.accommodation.url} target="_blank" class="text-blue-600 underline"
+				>View website</a
+			>
 		</p>
 	</div>
 
@@ -310,7 +273,7 @@
 		<h1 class="text-md text-left lext-lg text-gray-700 font-semibold">🔖 Itinerary</h1>
 		<ul>
 			{#each event.itinerary as item}
-				<li>{item}</li>
+				<li class="text-sm">{item}</li>
 			{/each}
 		</ul>
 	</div>
