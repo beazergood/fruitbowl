@@ -32,35 +32,35 @@ const data = {
                 {
                     type: 'Feature',
                     properties: {
-                        description: '<p>Desert Willow Golf Resort</p>',
+                        description: '<p>Bighorn Golf Club</p>',
                         iconSize: [24, 24]
                     },
                     geometry: {
                         type: 'Point',
-                        coordinates: [-116.366, 33.765]
+                        coordinates: [-116.40899741534282, 33.67953802551937]
                     }
                 },
                 {
                     type: 'Feature',
                     properties: {
-                        description: '<strong>Bighorn Golf Club</strong>',
+                        description: '<strong>Desert Willow</strong>',
                         iconSize: [24, 24]
                     },
                     geometry: {
                         type: 'Point',
-                        coordinates: [-116.243, 33.405]
+                        coordinates: [-116.36666367301228, 33.766793430727844]
                     }
                 },
                 {
                     type: 'Feature',
                     properties: {
                         description:
-                            '<strong>Big Backyard Beach Bash and Wine Fest</strong><p>EatBar (2761 Washington Boulevard Arlington VA) is throwing a <a href="http://tallulaeatbar.ticketleap.com/2012beachblanket/" target="_blank" title="Opens in a new window">Big Backyard Beach Bash and Wine Fest</a> on Saturday, serving up conch fritters, fish tacos and crab sliders, and Red Apron hot dogs. 12:00-3:00 p.m. $25.grill hot dogs.</p>',
+                            '<p>Palm Desert Golf Club</p>',
                         iconSize: [24, 24]
                     },
                     geometry: {
                         type: 'Point',
-                        coordinates: [-77.09, 38.881]
+                        coordinates: [-116.31741064417697, 33.75093163733706]
                     }
                 }
             ]
@@ -108,10 +108,10 @@ const data = {
             }
         },
         itinerary: [
-            '2/17 - Arrive LA, drive to Palm Desert',
-            '2/18 - 18 Holes @ Cactus Canyon',
-            '2/19 - 36 Holes @ Desert Run',
-            '2/20 - 18 Holes @ Rustic Canyon'
+            '2/17 - 🛬 LAX, 🚙 to Palm Desert',
+            '2/18 - 18 🏌🏻 @ Bighorn Golf Club',
+            '2/19 - 36 🏌🏻 @ Desert Willow',
+            '2/20 - 18 🏌🏻 @ Palm Desert, 🛫 LAX'
         ],
         meta: {
             bgColorClass: 'bg-green-600',
