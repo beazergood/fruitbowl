@@ -97,7 +97,8 @@
 				const width = marker.properties.iconSize[0];
 				const height = marker.properties.iconSize[1];
 				el.className = 'marker';
-				el.style.backgroundImage = `url(icons/12-arrow-down-solid.gif)`; // 46-notification-bell-solid.gif
+				const iconType = marker.properties.iconType;
+				el.style.backgroundImage = iconType === 'house' ? `url(icons/63-home-outline-colored.gif)` : `url(icons/18-location-pin-outline-white.gif)`;
 				el.style.width = `${width}px`;
 				el.style.height = `${height}px`;
 				el.style.backgroundSize = '100%';

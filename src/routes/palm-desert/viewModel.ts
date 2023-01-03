@@ -20,6 +20,18 @@ const data = {
                 {
                     type: 'Feature',
                     properties: {
+                        description: '<p>Air BnB</p>',
+                        iconSize: [24, 24],
+                        iconType: 'house'
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [-116.28497708500616, 33.73027613101971]
+                    }
+                },
+                {
+                    type: 'Feature',
+                    properties: {
                         description: '<p>Desert Willow Golf Resort</p>',
                         iconSize: [24, 24]
                     },
