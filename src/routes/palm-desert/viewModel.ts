@@ -1,3 +1,4 @@
+
 const data = {
     event: {
         name: 'Fruitbowl 2023',
@@ -13,41 +14,74 @@ const data = {
             timezone: 'America%2FLos_Angeles',
             temperatureGuage: 'F'
         },
-        waypoints: [{
-            activity: 'golf',
-            description: 'Golf at Indian Wells Country Club',
-            location: {
-                lat: 33.765,
-                lng: -116.366
-            }
-        }],
+        geoWaypoints: {
+            type: 'FeatureCollection',
+            features: [
+                {
+                    type: 'Feature',
+                    properties: {
+                        description: '<p>Desert Willow Golf Resort</p>',
+                        iconSize: [24, 24]
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [-116.366, 33.765]
+                    }
+                },
+                {
+                    type: 'Feature',
+                    properties: {
+                        description: '<strong>Bighorn Golf Club</strong>',
+                        iconSize: [24, 24]
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [-116.243, 33.405]
+                    }
+                },
+                {
+                    type: 'Feature',
+                    properties: {
+                        description:
+                            '<strong>Big Backyard Beach Bash and Wine Fest</strong><p>EatBar (2761 Washington Boulevard Arlington VA) is throwing a <a href="http://tallulaeatbar.ticketleap.com/2012beachblanket/" target="_blank" title="Opens in a new window">Big Backyard Beach Bash and Wine Fest</a> on Saturday, serving up conch fritters, fish tacos and crab sliders, and Red Apron hot dogs. 12:00-3:00 p.m. $25.grill hot dogs.</p>',
+                        iconSize: [24, 24]
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [-77.09, 38.881]
+                    }
+                }
+            ]
+        },
         transport: {
             outbound: {
                 from: {
                     date: '2023-02-16',
-                    time: '12:00',
+                    time: '12:20',
                     city: 'London',
-                    airport: 'LHR'
+                    airport: 'LHR T3',
+                    flight: 'VS 7'
                 },
                 to: {
                     date: '2023-02-16',
-                    time: '12:00',
+                    time: '15:35',
                     city: 'Los Angeles',
                     airport: 'LAX'
                 }
             },
             inbound: {
                 from: {
-                    date: '2023-02-16',
-                    time: '12:00',
+                    date: '2023-02-20',
+                    time: '22:10',
                     city: 'Los Angeles',
-                    airport: 'LAX'
+                    airport: 'LAX',
+                    flight: 'VS 24'
                 },
                 to: {
                     date: '2023-02-21',
-                    time: '16:00',
+                    time: '16:25',
                     city: 'London',
-                    airport: 'LHR'
+                    airport: 'LHR T3'
                 }
             }
         },
@@ -63,9 +97,9 @@ const data = {
         },
         itinerary: [
             '2/17 - Arrive LA, drive to Palm Desert',
-			'2/18 - 18 Holes @ Cactus Canyon',
-			'2/19 - 36 Holes @ Desert Run',
-			'2/20 - 18 Holes @ Rustic Canyon'
+            '2/18 - 18 Holes @ Cactus Canyon',
+            '2/19 - 36 Holes @ Desert Run',
+            '2/20 - 18 Holes @ Rustic Canyon'
         ],
         meta: {
             bgColorClass: 'bg-green-600',
