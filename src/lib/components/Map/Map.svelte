@@ -16,15 +16,12 @@
 		addControl: (arg0: mapboxgl.FullscreenControl) => void;
 	};
 
-
-
     function onReady() {
 		mapComponent.flyTo({
-			center: [event.location.lng, event.location.lat],
-			zoom: event.location.zoom,
+			center: [location.lng,location.lat],
+			zoom: location.zoom,
 			speed: 0.6
 		});
-		mapComponent.addControl(new mapboxgl.FullscreenControl());
 	}
 </script>
 
@@ -41,8 +38,8 @@
 				zoom="4"
 				options={{ cooperativeGestures: true }}
 			>
-				{#if geoWaypoints}
-					{#each geoWaypoints.features as waypoint}
+				{#if data}
+					{#each data.features as waypoint}
 						<Marker
 							lng={waypoint.geometry.coordinates[0]}
 							lat={waypoint.geometry.coordinates[1]}
