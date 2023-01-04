@@ -9,25 +9,77 @@ const data = {
             city: 'Saalbach',
             state: 'Salzburg',
             country: 'Austria',
-            lat: 47.4,
-            lng: 12.7,
+            lat: 47.59936873230285,
+            lng: 12.923908356488695,
+            zoom: 7,
             timezone: 'Europe/Vienna',
             temperatureGuage: 'C'
         },
         meta: {
+            headerColorClass: 'text-blue-400',
             bgColorClass: 'bg-blue-100',
+            borderColorClass: 'border-blue-200',
             bgImageClasses: [
                 'bg-ski-1',
                 'bg-ski-2',
             ]
         },
-        waypoints: [{
-            activity: 'ski',
-            location: {
-                lat: 47.4,
-                lng: 12.7
-            }
-        }],
+        geoWaypoints: {
+            type: 'FeatureCollection',
+            mapStartPoint: [-1.332166187875824, 52.829542518374375],
+            features: [
+                {
+                    type: 'Feature',
+                    properties: {
+                        description: 'Salzburg Airport',
+                        iconSize: [24, 24],
+                        icon: '✈️'
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [13.002881358558422, 47.79506553663708]
+                    }
+                },
+                {
+                    type: 'Feature',
+                    properties: {
+                        description: 'Hotel Panther\'A',
+                        iconSize: [24, 24],
+                        icon: '🏨'
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [12.63687086739732, 47.39303746653127]
+                    }
+                },
+
+                {
+                    type: 'Feature',
+                    properties: {
+                        description: 'Ski Circus',
+                        iconSize: [24, 24],
+                        icon: '⛷️'
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [12.65456083300746, 47.409820379870645]
+                    }
+                },
+                {
+                    type: 'Feature',
+                    properties: {
+                        description:
+                            'Palm Desert Golf Club',
+                        iconSize: [24, 24],
+                        icon: '🏌🏻'
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [-116.31741064417697, 33.75093163733706]
+                    }
+                }
+            ]
+        },
         transport: {
             outbound: {
                 from: {
@@ -71,9 +123,9 @@ const data = {
             }
         },
         itinerary: [
-			'1/28 - ✈️ Saalbach, 🏨 check in, rent 🎿',
-			'1/29 - ⛷️ 🌭 🍺 😴',
-			'1/30 - ⛷️ 🌭 🍺 😴',
+            '1/28 - ✈️ Saalbach, 🏨 check in, rent 🎿',
+            '1/29 - ⛷️ 🌭 🍺 😴',
+            '1/30 - ⛷️ 🌭 🍺 😴',
             '1/31 - ⛷️ 🌭 🍺 😴',
             '2/01 - ⛷️ 🌭 🍺 😴',
             '2/02 - ⛷️ 🌭 🍺 😴',

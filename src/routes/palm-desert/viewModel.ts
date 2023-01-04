@@ -11,18 +11,36 @@ const data = {
             country: 'USA',
             lat: 33.7222,
             lng: -116.375,
+            zoom: 9,
             timezone: 'America%2FLos_Angeles',
             temperatureGuage: 'F'
         },
+        meta: {
+            headerColorClass: 'text-green-400',
+            bgColorClass: 'bg-green-600',
+            borderColorClass: 'border-green-300',
+            bgImageClasses: [
+                'bg-golf-1',
+                'bg-golf-2',
+                'bg-golf-3',
+                'bg-golf-4',
+                'bg-golf-5',
+                'bg-golf-6',
+                'bg-golf-7',
+                'bg-golf-8',
+                'bg-golf-9'
+            ]
+        },
         geoWaypoints: {
             type: 'FeatureCollection',
+            
             features: [
                 {
                     type: 'Feature',
                     properties: {
-                        description: '<p>Air BnB</p>',
+                        description: 'Air BnB',
                         iconSize: [24, 24],
-                        iconType: 'house'
+                        icon: '🏠'
                     },
                     geometry: {
                         type: 'Point',
@@ -32,8 +50,9 @@ const data = {
                 {
                     type: 'Feature',
                     properties: {
-                        description: '<p>Bighorn Golf Club</p>',
-                        iconSize: [24, 24]
+                        description: 'Bighorn Golf Club',
+                        iconSize: [24, 24],
+                        icon: '🏌🏻'
                     },
                     geometry: {
                         type: 'Point',
@@ -43,8 +62,9 @@ const data = {
                 {
                     type: 'Feature',
                     properties: {
-                        description: '<strong>Desert Willow</strong>',
-                        iconSize: [24, 24]
+                        description: 'Desert Willow Golf Course',
+                        iconSize: [24, 24],
+                        icon: '🏌🏻'
                     },
                     geometry: {
                         type: 'Point',
@@ -55,8 +75,9 @@ const data = {
                     type: 'Feature',
                     properties: {
                         description:
-                            '<p>Palm Desert Golf Club</p>',
-                        iconSize: [24, 24]
+                            'Palm Desert Golf Club',
+                        iconSize: [24, 24],
+                        icon: '🏌🏻'
                     },
                     geometry: {
                         type: 'Point',
@@ -113,20 +134,6 @@ const data = {
             '2/19 - 36 🏌🏻 @ Desert Willow',
             '2/20 - 18 🏌🏻 @ Palm Desert, 🛫 LAX'
         ],
-        meta: {
-            bgColorClass: 'bg-green-600',
-            bgImageClasses: [
-                'bg-golf-1',
-                'bg-golf-2',
-                'bg-golf-3',
-                'bg-golf-4',
-                'bg-golf-5',
-                'bg-golf-6',
-                'bg-golf-7',
-                'bg-golf-8',
-                'bg-golf-9'
-            ]
-        }
     }
 };
 
