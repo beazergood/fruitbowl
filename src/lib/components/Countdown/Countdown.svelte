@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { DateTime } from 'luxon';
-	import { Map, Marker } from '@beyonk/svelte-mapbox';
+	import { Map, Marker} from '@beyonk/svelte-mapbox';
 	import { onMount } from 'svelte';
 	import type { Event } from './$types';
 	import { PUBLIC_MAPBOX_API_TOKEN } from '$env/static/public';
@@ -35,9 +35,8 @@
 	}
 
 	function onReady() {
-		mapComponent.cooperativeGestures = true;
-		// mapComponent.zoom = 2;
 		mapComponent.flyTo({ center: [event.location.lng, event.location.lat], zoom: event.location.zoom, speed: 0.6 });
+		mapComponent.addControl(new mapboxgl.FullscreenControl());
 	}
 	onMount(async () => {
 		bgImage = bgClasses[randomIx()];
@@ -122,30 +121,18 @@
 	<!-- Weather widget -->
 	<div class="bg-white/100 flex flex-col p-1 rounded-lg border-2 {event.meta.borderColorClass}">
 		<h1 class="text-md text-left text-gray-700 font-semibold">🌦️ Weather</h1>
-
 		{#await weatherData}
 			<p>Loading...</p>
 		{:then weatherData}
-			<!-- <div class="flex flex-row space-between px-4 justify-between items-center"> -->
 			<h1 class="text-2xl text-center -mt-2">
-				<!-- <span class="text-lg">Currently</span> -->
 				{Math.floor(weatherData?.current_weather?.temperature)}&deg;
 			</h1>
-			<!-- <span class="text-2xl"> -->
-			<!-- {weatherData?.weather_descriptions[0]} -->
-			<!-- </span> -->
-			<!-- {#if weatherData?.weather_icons}
-					{#each weatherData?.weather_icons as icon}
-						<img src={icon} width="44" height="44" alt="weather icon" />
-					{/each}
-				{/if} -->
-			<!-- </div> -->
 		{:catch error}
 			<p>Error {error}</p>
 		{/await}
 	</div>
 
-	<!-- Map widget TODO: add mapbox map -->
+	<!-- Map widget -->
 	<div class="bg-white/100 flex flex-col z-0 rounded-lg border-2 {event.meta.borderColorClass} relative">
 		<h1
 			class="text-md absolute top-1 bg-white/60 p-1 left-2 rounded-lg z-10 text-left text-gray-700 mb-2 font-semibold"
@@ -160,7 +147,8 @@
 				on:ready={onReady}
 				center={[event.location.lng, event.location.lat]}
 				zoom="4"
-			>
+				options={{ cooperativeGestures: true }}
+				>
 				{#if event.geoWaypoints}
 					{#each event.geoWaypoints.features as waypoint}
 						<Marker
