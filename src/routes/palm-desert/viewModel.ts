@@ -85,6 +85,7 @@ const data = {
 			]
 		},
 		transport: {
+            title: '✈️ Transport',
 			outbound: {
 				from: {
 					date: '2023-02-16',
