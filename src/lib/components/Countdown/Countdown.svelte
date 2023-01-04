@@ -1,9 +1,14 @@
 <script lang="ts">
 	import { DateTime } from 'luxon';
-	import mapboxgl from 'mapbox-gl';
+	import { Map, Marker } from '@beyonk/svelte-mapbox';
 	import { onMount } from 'svelte';
-
 	import type { Event } from './$types';
+	import { PUBLIC_MAPBOX_API_TOKEN } from '$env/static/public';
+
+	let mapComponent: {
+		cooperativeGestures?: boolean;
+		flyTo: (arg0: { center: number[]; zoom: number }) => void;
+	};
 
 	export let event: Event;
 	/**
@@ -29,6 +34,11 @@
 		return Math.floor(Math.random() * bgClasses.length);
 	}
 
+	function onReady() {
+		mapComponent.cooperativeGestures = true;
+		// mapComponent.zoom = 2;
+		mapComponent.flyTo({ center: [event.location.lng, event.location.lat], zoom: event.location.zoom, speed: 0.6 });
+	}
 	onMount(async () => {
 		bgImage = bgClasses[randomIx()];
 
@@ -36,78 +46,6 @@
 		var start = DateTime.now();
 
 		diffInDays = Math.floor(end.diff(start, 'days').toObject().days);
-		console.log('diffInMonths', diffInDays);
-
-		mapboxgl.accessToken =
-			'pk.eyJ1Ijoid2ViamFtIiwiYSI6ImNsY2F5Nnl4ajBvNG0zd21wcXpmdnBnaW4ifQ.heID-NEZK16RJc8YuqN5BA';
-
-		const map = new mapboxgl.Map({
-			container: 'map',
-			style: 'mapbox://styles/mapbox/streets-v12',
-			center: [event.location.lng, event.location.lat],
-			zoom: 10
-		});
-
-		map.on('load', () => {
-			// Load an image from an external URL.
-			// map.loadImage('https://docs.mapbox.com/mapbox-gl-js/assets/cat.png', (error, image) => {
-			// 	if (error) throw error;
-
-			// 	// Add the image to the map style.
-			// 	if (image) {
-			// 		map.addImage('cat', image);
-			// 	}
-
-			// 	// Add a data source containing one point feature.
-			// 	map.addSource('point', {
-			// 		type: 'geojson',
-			// 		data: {
-			// 			type: 'FeatureCollection',
-			// 			features: [
-			// 				{
-			// 					type: 'Feature',
-			// 					properties: {
-			// 						description: '<strong>Bighorn Golf Club</strong>',
-			// 						icon: 'theatre'
-			// 					},
-			// 					geometry: {
-			// 						type: 'Point',
-			// 						coordinates: [-116.366, 33.765]
-			// 					}
-			// 				}
-			// 			]
-			// 		}
-			// 	});
-
-			// 	// Add a layer to use the image to represent the data.
-			// 	map.addLayer({
-			// 		id: 'points',
-			// 		type: 'symbol',
-			// 		source: 'point', // reference the data source
-			// 		layout: {
-			// 			'icon-image': 'cat', // reference the image
-			// 			'icon-size': 0.15
-			// 		}
-			// 	});
-			// });
-
-			for (const marker of event.geoWaypoints.features) {
-				// Create a DOM element for each marker.
-				const el = document.createElement('div');
-				const width = marker.properties.iconSize[0];
-				const height = marker.properties.iconSize[1];
-				el.className = 'marker';
-				const iconType = marker.properties.iconType;
-				el.style.backgroundImage = iconType === 'house' ? `url(icons/63-home-outline-colored.gif)` : `url(icons/18-location-pin-outline-white.gif)`;
-				el.style.width = `${width}px`;
-				el.style.height = `${height}px`;
-				el.style.backgroundSize = '100%';
-				el.style.borderRadius = '50%';
-
-				// Add markers to the map.
-				new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates).addTo(map);
-			}
-		});
 	});
 
 	function getWeather() {
@@ -163,16 +101,16 @@
 		.bgColorClass} {bgImage}"
 >
 	<!-- Info widget -->
-	<div class="bg-white/50 mt-10 flex flex-col p-2 rounded-lg">
-		<h1 class="text-3xl font-bold text-center text-gray-700">{event.name}</h1>
-		<h3 class="text-xl font-bold text-center text-gray-700">{event.emoji}</h3>
-		<h3 class="text-lg font-bold text-center text-gray-700">
+	<div class="bg-white/30 mt-10 flex flex-col p-2 rounded-lg">
+		<h1 class="text-3xl font-bold text-center {event.meta.headerColorClass} stroke-cyan-500">{event.name}</h1>
+		<h3 class="text-xl font-bold text-center">{event.emoji}</h3>
+		<h3 class="text-lg font-bold text-center {event.meta.headerColorClass}">
 			{event.location.city}, {event.location.state}
 		</h3>
 	</div>
 
 	<!-- Date Countdown widget -->
-	<div class="bg-white/80 flex flex-col p-2 rounded-lg border-2 border-white">
+	<div class="bg-white/100 flex flex-col p-2 rounded-lg border-2 {event.meta.borderColorClass}">
 		<h1 class="text-md text-left text-gray-700 font-semibold">📅 When</h1>
 
 		<h1 class="text-3xl font-bold text-center text-gray-700 -mt-4">
@@ -182,14 +120,14 @@
 	</div>
 
 	<!-- Weather widget -->
-	<div class="bg-white/80 flex flex-col p-1 rounded-lg border-2 border-white">
+	<div class="bg-white/100 flex flex-col p-1 rounded-lg border-2 {event.meta.borderColorClass}">
 		<h1 class="text-md text-left text-gray-700 font-semibold">🌦️ Weather</h1>
 
 		{#await weatherData}
 			<p>Loading...</p>
 		{:then weatherData}
 			<!-- <div class="flex flex-row space-between px-4 justify-between items-center"> -->
-			<h1 class="text-2xl text-center">
+			<h1 class="text-2xl text-center -mt-2">
 				<!-- <span class="text-lg">Currently</span> -->
 				{Math.floor(weatherData?.current_weather?.temperature)}&deg;
 			</h1>
@@ -208,20 +146,43 @@
 	</div>
 
 	<!-- Map widget TODO: add mapbox map -->
-	<div class="bg-white/80 flex flex-col z-0 rounded-lg border-2 border-white relative">
+	<div class="bg-white/100 flex flex-col z-0 rounded-lg border-2 {event.meta.borderColorClass} relative">
 		<h1
 			class="text-md absolute top-1 bg-white/60 p-1 left-2 rounded-lg z-10 text-left text-gray-700 mb-2 font-semibold"
 		>
 			📍 Where
 		</h1>
-		<div id="map" class="block w-100 h-64" />
+		<div id="map" class="block w-100 h-64">
+			<Map
+				accessToken={PUBLIC_MAPBOX_API_TOKEN}
+				style="mapbox://styles/mapbox/outdoors-v11"
+				bind:this={mapComponent}
+				on:ready={onReady}
+				center={[event.location.lng, event.location.lat]}
+				zoom="4"
+			>
+				{#if event.geoWaypoints}
+					{#each event.geoWaypoints.features as waypoint}
+						<Marker
+							lng={waypoint.geometry.coordinates[0]}
+							lat={waypoint.geometry.coordinates[1]}
+							label={waypoint.properties.description}
+						>
+							<span class="text-lg bg-white/70 rounded-full p-1">
+								{waypoint.properties.icon}
+							</span>
+						</Marker>
+					{/each}
+				{/if}
+			</Map>
+		</div>
 	</div>
 
 	<!-- Transport widget -->
-	<div class="bg-white/80 flex flex-col p-2 rounded-lg border-2 border-white">
+	<div class="bg-white/100 flex flex-col p-2 rounded-lg border-2 {event.meta.borderColorClass}">
 		<h1 class="text-md text-left text-gray-700 mb-2 font-semibold">✈️ Transport</h1>
 		<div class="flex justify-between">
-			<p class="text-sm">Outbound</p>
+			<p class="text-xs font-bold">Outbound</p>
 			<div class="text-sm w-28 flex justify-around">
 				<span>🛫</span>
 				<span>🛬 </span>
@@ -237,9 +198,9 @@
 				{/if}
 			</div>
 		</div>
-
+		<hr class="my-2">
 		<div class="flex justify-between">
-			<p class="text-sm">Inbound</p>
+			<p class="text-xs font-bold">Inbound</p>
 			<div class="text-sm w-28 flex justify-around">
 				<span>🛫</span>
 				<span>🛬 </span>
@@ -258,7 +219,7 @@
 	</div>
 
 	<!-- Accomodation widget -->
-	<div class="bg-white/80 flex flex-col p-2 rounded-lg border-2 border-white">
+	<div class="bg-white/100 flex flex-col p-2 rounded-lg border-2 {event.meta.borderColorClass}">
 		<h1 class="text-md text-left lext-lg text-gray-700 font-semibold">🏡 Accommodation</h1>
 		<p class="text-sm font-medium mt-2">{event.accommodation.name}</p>
 		<p class="text-sm">
@@ -270,7 +231,7 @@
 	</div>
 
 	<!-- Itinerary widget -->
-	<div class="bg-white/80 flex flex-col p-2 rounded-lg border-2 border-white">
+	<div class="bg-white/100 flex flex-col p-2 rounded-lg border-2 {event.meta.borderColorClass}">
 		<h1 class="text-md text-left lext-lg text-gray-700 font-semibold">🔖 Itinerary</h1>
 		<ul>
 			{#each event.itinerary as item}
@@ -292,5 +253,9 @@
 		border-radius: 50%;
 		cursor: pointer;
 		padding: 0;
+	}
+
+	:global(.mapboxgl-map) {
+		height: 200px;
 	}
 </style>
