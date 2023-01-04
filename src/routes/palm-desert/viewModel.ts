@@ -16,7 +16,7 @@ const data = {
             temperatureGuage: 'F'
         },
         meta: {
-            headerColorClass: 'text-green-400',
+            headerColorClass: 'text-white',
             bgColorClass: 'bg-green-600',
             borderColorClass: 'border-green-300',
             bgImageClasses: [
