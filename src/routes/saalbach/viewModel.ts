@@ -1,6 +1,7 @@
 
 const data = {
     event: {
+        id: 1,
         name: 'Saalbach 2023',
         emoji: ['🎿 🇦🇹 🏔️'],
         startDate: '2023-01-27',
@@ -15,16 +16,17 @@ const data = {
             timezone: 'Europe/Vienna',
             temperatureGuage: 'C'
         },
-        meta: {
+        metadata: {
             headerColorClass: 'text-blue-900',
             bgColorClass: 'bg-blue-100',
-            borderColorClass: 'border-blue-200',
+            borderClass: 'border-blue-200',
             bgImageClasses: [
                 'bg-ski-1',
                 'bg-ski-2',
             ]
         },
         geoWaypoints: {
+            title: '📍 Where',
             type: 'FeatureCollection',
             mapStartPoint: [-1.332166187875824, 52.829542518374375],
             features: [
@@ -81,6 +83,7 @@ const data = {
             ]
         },
         transport: {
+            title: '✈️ Transport',
             outbound: {
                 from: {
                     date: '2023-01-27',
@@ -113,6 +116,7 @@ const data = {
             }
         },
         accommodation: {
+            title: '🏡 Accommodation',
             name: 'Hotel Panther\'A',
             description: 'Thanks to its central location in the middle of Saalbach\'s pedestrian zone, the Hotel Panther\'A with Ski-In & Ski-Out is the perfect starting point for all activities',
             link: 'https://www.hotel-panthera.at/en/',
@@ -122,16 +126,19 @@ const data = {
                 city: 'Saalbach',
             }
         },
-        itinerary: [
-            '1/28 - ✈️ Saalbach, 🏨 check in, rent 🎿',
-            '1/29 - ⛷️ 🌭 🍺 😴',
-            '1/30 - ⛷️ 🌭 🍺 😴',
-            '1/31 - ⛷️ 🌭 🍺 😴',
-            '2/01 - ⛷️ 🌭 🍺 😴',
-            '2/02 - ⛷️ 🌭 🍺 😴',
-            '2/03 - ⛷️ 🌭 🍺 😴',
-            '2/04 - ✈️ home'
-        ],
+        itinerary: {
+            title: '🎯 Itinerary',
+            items:[
+            '1-28 - ✈️ SZG | 🏨 check-in | 🎿 rental',
+            '1-29 - ⛷️ 🌭 🧖🏻 🍺 🛌',
+            '1-30 - ⛷️ 🌭 🧖🏻 🍺 🛌',
+            '1-31 - ⛷️ 🌭 🧖🏻 🍺 🛌',
+            '2-01 - ⛷️ 🌭 🧖🏻 🍺 🛌',
+            '2-02 - ⛷️ 🌭 🧖🏻 🍺 🛌',
+            '2-03 - ⛷️ 🌭 🧖🏻 🍺 🛌',
+            '2-04 - ✈️ EMA'
+        ]
+    },
     }
 };
 
