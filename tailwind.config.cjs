@@ -17,6 +17,8 @@ module.exports = {
         'avocado-1': "url('/images/avocado.jpeg')",
         'citrus-1': "url('/images/citrus.jpeg')",
         'marrionberry-1': "url('/images/marrionberry.jpeg')",
+        'frame': "url('/svg/frame.svg')",
+        'frame-1': "url('/svg/frame.svg')",
       }
     },
   },

@@ -21,7 +21,7 @@ const data = {
         },
         {
             emoji: '🦠',
-            team:'No Tournament',
+            team:'Not Played',
             year: 2022,
             venue: 'Pandemic'
         },
