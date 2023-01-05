@@ -53,7 +53,7 @@
 				/>
 			</div>
 			<div
-				class="bg-frame-1 bg-no-repeat bg-cover w-full flex flex-col items-center pt-14 px-1 border-b-4 border-stone-500 cursor-pointer"
+				class="bg-frame-1 bg-no-repeat bg-cover w-full flex flex-col items-center pt-14 px-1 border-b-4 border-white shadow-xl cursor-pointer"
 				on:click={setBackground}
 				on:keydown={setBackground}
 			>
