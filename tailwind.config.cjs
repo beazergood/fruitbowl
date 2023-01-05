@@ -14,11 +14,9 @@ module.exports = {
         'golf-9': "url('/images/IMG_4502.jpeg')",
         'ski-1': "url('/images/saalbach_1.jpg')",
         'ski-2': "url('/images/saalbach_2.jpg')",
-        'fruit': "url('/images/5857418.jpg')",
         'avocado-1': "url('/images/avocado.jpeg')",
-        'avocado-2': "url('/images/avocado-2.jpeg')",
-        'citrus': "url('/images/citrus.jpeg')",
-        'marrionberry': "url('/images/marrionberry.jpeg')",
+        'citrus-1': "url('/images/citrus.jpeg')",
+        'marrionberry-1': "url('/images/marrionberry.jpeg')",
       }
     },
   },
