@@ -57,7 +57,7 @@
 				on:click={setBackground}
 				on:keydown={setBackground}
 			>
-				<div class="p-4 w-full flex flex-col items-center">
+				<div class="p-4 w-100 flex flex-col items-center">
 					<h1 class="font-bold text-2xl text-center mb-4 abril bg-clip-text text-gray-700">Fruitbowl Champions</h1>
 					<ul class="w-full">
 						{#each data.items as item}

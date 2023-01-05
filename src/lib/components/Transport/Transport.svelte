@@ -1,5 +1,5 @@
 <script lang="ts">
-    	import { DateTime } from 'luxon';
+	import { DateTime } from 'luxon';
 
 	import Card from '../Card/Card.svelte';
 	import type { Transportation, Metadata } from './$types';
@@ -16,7 +16,6 @@
 	let inboundLanding = '';
 
 	function setDateStrings() {
-	
 		outboundDate = DateTime.fromISO(data.outbound.from.date).toFormat('dd MMM yy');
 		outboundTakeoff = DateTime.fromISO(data.outbound.from.time).toFormat('HH:mm');
 		outboundLanding = DateTime.fromISO(data.outbound.to.time).toFormat('HH:mm');
@@ -29,7 +28,7 @@
 </script>
 
 <Card {metadata}>
-	<h1 slot="title" class="text-md text-left lext-lg text-gray-700 font-semibold mb-2">
+	<h1 slot="title">
 		{data.title}
 	</h1>
 	<div slot="content">
