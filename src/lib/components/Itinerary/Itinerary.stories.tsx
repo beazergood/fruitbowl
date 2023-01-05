@@ -34,7 +34,7 @@ const Template = ({ onAddItems, ...args }) => ({
 export const Empty: Story = Template.bind({});
 Empty.args = {
 	metadata: { borderClass: 'border-green-200' },
-	itineraryData: {
+	data: {
 		title: '🎯 My Itinerary',
         items: []
 	}
@@ -43,7 +43,7 @@ Empty.args = {
 export const Default: Story = {
 	args: {
 		metadata: { borderClass: 'border-red-200' },
-		itineraryData: {
+		data: {
 			title: '🎯 My Itinerary',
 			items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 4']
 		}
