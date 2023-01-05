@@ -1,13 +1,19 @@
 export type Event = {
 	id: string;
-	name: string;
-	emoji: string[];
+	info: Info;
 	location: Location;
 	accommodation: Accommodation;
 	meta: Metadata;
 	itinerary: Itinerary;
 	transport: Transportation;
 	geoWaypoints: GeoWaypoints;
+};
+
+export type Info = {
+	name: string;
+	emoji: string;
+	startDate: string;
+	endDate: string;
 };
 
 export type Accommodation = {
