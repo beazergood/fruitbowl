@@ -28,23 +28,25 @@
 	}
 </script>
 
-<div class="items-center flex flex-col w-screen {bgImage} h-screen bg-cover bg-no-repeat pt-24 justify-between">
-	<div class="flex flex-row justify-around w-full p-6 ">
+<div
+	class="items-center flex flex-col w-screen {bgImage} h-screen bg-cover bg-no-repeat pt-24 justify-between"
+>
+	<div class="flex flex-row justify-around w-full">
 		<div
-			class="shadow-lg rounded-lg {bgColor} p-6 w-2/3 md:w-1/3 flex flex-col items-center"
+			class="shadow-lg rounded-lg {bgColor} p-4 w-4/5 md:w-1/3 flex flex-col items-center"
 			on:click={setBackground}
 			on:keydown={setBackground}
 		>
 			<img src="/images/fruitbowl.png" class="mb-2" alt="Fruitbowl" width="64px" height="64px" />
-			<h1 class="font-bold text-xl text-center mb-4">Fruitbowl Champions</h1>
-			<ul class="">
+			<h1 class="font-bold text-2xl text-center mb-4 abril">Fruitbowl Champions</h1>
+			<ul class="w-full">
 				{#each data.items as item}
 					{#if variation === 1}
 						<li class="flex mb-2">
 							<div class="pt-1">
 								{item.year}
 							</div>
-							<div class="ml-2 flex flex-col">
+							<div class="ml-4 flex flex-col">
 								<div class="text-lg">
 									{item.team}
 								</div>
@@ -77,3 +79,14 @@
 		>
 	</div>
 </div>
+
+<style>
+	 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Vollkorn:wght@800&display=swap'); 
+
+	.volkorn {
+		font-family: 'Vollkorn', serif;
+	}
+	.abril{
+		font-family: 'Abril Fatface', cursive;
+	}
+</style>
