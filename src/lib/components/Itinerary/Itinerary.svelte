@@ -13,7 +13,7 @@
 	}
 </script>
 
-<Card metadata={data.metadata}>
+<Card meta={data.meta}>
 	<h1 slot="title" class="text-md text-left lext-lg text-gray-700 font-semibold p-2">
 		{data.title}
 	</h1>

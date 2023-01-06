@@ -1,14 +1,14 @@
 <script lang="ts">
-    import type {Metadata} from './$types';
+    import type {meta} from './$types';
 
     import Card from './Card.svelte';
 
-    export const metadata: Metadata = {
+    export const meta: meta = {
         borderClass: 'border-gray-400'
     };
 </script>
 
-<Card metadata={metadata}>
+<Card meta={meta}>
     <h1 slot="title">Card Title</h1>
     <p slot="content">Card Content</p>
 </Card>

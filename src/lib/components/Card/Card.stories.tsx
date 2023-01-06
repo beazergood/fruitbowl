@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Example: Story = {
 	args: {
-        metadata: {borderClass: 'border-red-200'},
+        meta: {borderClass: 'border-red-200'},
 	}
 };
 

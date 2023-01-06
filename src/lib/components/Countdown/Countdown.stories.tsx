@@ -23,7 +23,7 @@ const Template = ({ ...args }) => ({
 export const Default: Story = {
 	args: {
         data: {
-            metadata: { borderClass: 'border-red-500', bgColorClass: 'bg-gradient-to-b from-cyan-500 to-blue-500' },
+            meta: { borderClass: 'border-red-500', bgClasses: 'bg-gradient-to-b from-cyan-500 to-blue-500' },
 			startDate: '2023-01-13',
 			endDate: '2023-01-15',
 		}

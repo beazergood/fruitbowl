@@ -21,7 +21,7 @@
 	}
 </script>
 
-<Card metadata={location.metadata}>
+<Card meta={location.meta}>
 	<div
 		slot="title"
 		class="text-md text-left lext-lg text-gray-700 font-semibold mb-2 absolute top-2 bg-white/50 left-2 p-1 rounded-lg z-10"

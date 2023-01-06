@@ -26,17 +26,17 @@
 	}
 
 	onMount(async () => {
-		bgClasses = data.metadata.bgImageClasses;
+		bgClasses = data.meta.bgImageClasses;
 		bgImage = bgClasses[randomIx()];
 		// console.log(bgImage);
 	});
 </script>
 
-<div class={data.metadata.bgColorClass}>
-	<div class="w-screen pt-28 bg-no-repeat bg-contain flex flex-col items-center p-4 {bgImage}">
+<div class={data.meta.bgClasses}>
+	<div class="w-screen pt-28 bg-no-repeat bg-contain flex flex-col items-center p-4 {bgImage} bg-fixed">
 		<div class="flex flex-col gap-4 justify-center w-full md:w-1/2">
 			<!-- Info widget -->
-			<Info metadata={data.metadata} info={data.info} location={data.location} />
+			<Info info={data.info} location={data.location} />
 
 			<!-- Countdown widget -->
 			<Countdown data={data.info} />
@@ -46,7 +46,7 @@
 
 			<!-- Video widget -->
 			{#if data.video}
-				<Video video={data.video} metadata={data.metadata}/>
+				<Video video={data.video} />
 			{/if}
 
 			<!-- Map widget -->

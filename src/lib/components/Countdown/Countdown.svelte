@@ -1,30 +1,19 @@
 <script lang="ts">
 	import { DateTime } from 'luxon';
 	import { onMount } from 'svelte';
-
 	import type { Info } from './$types';
-
 	import Card from '../Card/Card.svelte';
 
 	export let data: Info;
 
-	/***
-	 * @description The difference in days between the start and end date
-	 */
-	let diffInDays: number | string = "...";
-
-	/**
-	 * @description Returns a random index from the bgClasses array
-	 * @returns {number}
-	 */
-
+	let diffInDays: number | string = '...';
 	let displayDates = '';
 
 	onMount(async () => {
-		var end = DateTime.fromISO(data.startDate); // the start date of the event
+		var end = DateTime.fromISO(data.startDate);
 		var start = DateTime.now();
-
-		diffInDays = Math.floor(end.diff(start, 'days').toObject().days);
+		const diff = end.diff(start, 'days').toObject().days ?? 0;
+		diffInDays = Math.floor(diff);
 
 		const startDate = DateTime.fromISO(data.startDate).toFormat('dd MMM');
 		const endDate = DateTime.fromISO(data.endDate).toFormat('dd MMM yy');
@@ -32,10 +21,8 @@
 	});
 </script>
 
-<Card metadata={data.metadata}>
-	<div slot="title" class="text-md text-left lext-lg text-gray-700 font-semibold p-2">
-		📅 When
-	</div>
+<Card meta={data.meta}>
+	<div slot="title" class="text-md text-left lext-lg text-gray-700 font-semibold p-2">📅 When</div>
 	<div slot="content" class="px-2 pb-2">
 		<h1 class="text-3xl font-bold text-center text-gray-700 -mt-4">
 			<span class="text-lg mr-2">In</span>{diffInDays} Days
