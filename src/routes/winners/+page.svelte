@@ -1,6 +1,6 @@
 <script>
 	import HonorsBoard from '../../lib/components/HonorsBoard/HonorsBoard.svelte';
-    import data from './viewModel'
+    import data from './data'
 
 </script>
 

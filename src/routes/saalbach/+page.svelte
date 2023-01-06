@@ -1,6 +1,6 @@
 <script>
 	import Dashboard from '../../lib/components/Dashboard/Dashboard.svelte';
-	import data from './viewModel';
+	import data from './data';
 </script>
 
 <head>
