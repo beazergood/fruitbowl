@@ -6,19 +6,31 @@
 	export let info: Info;
 	export let location: Location;
 	
+	const metadataUpdated = {
+		...metadata,
+		borderClass: 'border-transparent',
+	};
 </script>
 
-<Card {metadata}>
+<Card metadata={metadataUpdated} bgColor={'bg-transparent'}>
 	<div
 		slot="title"
-		class="text-3xl font-bold text-center {metadata.headerColorClass} stroke-cyan-500 p-2"
+		class="text-3xl font-bold text-center {metadata.headerColorClass} stroke-cyan-500 p-2 mb-2"
 	>
-		{info.name}
+		<span class="bg-white/80 p-2 rounded-md">
+			{info.name}
+		</span>
 	</div>
 	<div slot="content" class="pb-2">
-		<h3 class="text-xl font-bold text-center">{info.emoji}</h3>
-		<h3 class="text-lg font-bold text-center {metadata.headerColorClass}">
-			{location.city}, {location.state}
+		<h3 class="text-lg font-bold text-center">
+			<span class="bg-white/80 p-2 rounded-md">
+				{info.emoji}
+			</span>
 		</h3>
+		<div class="flex flex-col mt-2 items-center">
+			<span class="text-md font-bold text-center bg-white/80 rounded-md p-1 {metadata.headerColorClass}">
+				{location.city}, {location.state}
+			</span>
+		</div>
 	</div>
 </Card>
