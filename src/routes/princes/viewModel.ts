@@ -22,7 +22,8 @@ const data = {
 		borderClass: 'border-green-300',
 		bgImageClasses: [
 			'bg-princes-1',
-			'bg-princes-2'
+			'bg-princes-2',
+			'bg-princes-3'
 		]
 	},
 	geoWaypoints: {
