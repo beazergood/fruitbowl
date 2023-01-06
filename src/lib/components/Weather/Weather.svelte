@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { Location, Metadata } from './$types';
+	import type { Location } from './$types';
 	import Card from '../Card/Card.svelte';
 
 	export let data: Location;
-	export let metadata: Metadata;
+	
 
 	let weatherData: any;
 
@@ -30,7 +30,7 @@
 	getWeather();
 </script>
 
-<Card {metadata}>
+<Card metadata={data.metadata}>
 	<h1 slot="title" class="text-md text-left lext-lg text-gray-700 font-semibold p-2">🌦️ Weather</h1>
 
 	<div slot="content" class="px-2 pb-2">

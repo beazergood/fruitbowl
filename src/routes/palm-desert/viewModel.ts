@@ -4,7 +4,10 @@ const data = {
 		name: 'Fruitbowl 2023',
 		emoji: '🫐 🍉 🍊 🥑',
 		startDate: '2023-02-17',
-		endDate: '2023-02-20'
+		endDate: '2023-02-20',
+		metadata: {
+			bgColorClass: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-md border-none'
+		}
 	},
 	location: {
 		city: 'Palm Desert',
@@ -14,18 +17,16 @@ const data = {
 		lng: -116.375,
 		zoom: 9,
 		timezone: 'America%2FLos_Angeles',
-		temperatureGuage: 'F'
+		temperatureGuage: 'F',
+		metadata: {
+			bgColorClass: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-md border-none'
+		}
 	},
 	metadata: {
 		headerColorClass: 'text-green-900',
-		bgColorClass: 'bg-green-800',
+		bgColorClass: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-sm',
 		borderClass: 'border-green-300',
-		bgImageClasses: [
-			'bg-golf-1',
-			'bg-golf-2',
-			'bg-golf-3',
-			'bg-golf-7'			
-		]
+		bgImageClasses: ['bg-golf-1', 'bg-golf-2', 'bg-golf-3', 'bg-golf-7']
 	},
 	geoWaypoints: {
 		title: '📍 Where',
@@ -112,6 +113,9 @@ const data = {
 				city: 'London',
 				airport: 'LHR T3'
 			}
+		},
+		metadata: {
+			bgColorClass: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-md border-none'
 		}
 	},
 	accommodation: {
@@ -124,6 +128,9 @@ const data = {
 			lat: 47.4,
 			lng: 12.7,
 			city: 'Saalbach'
+		},
+		metadata: {
+			bgColorClass: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-md border-none'
 		}
 	},
 	itinerary: {
@@ -133,7 +140,10 @@ const data = {
 			'2/18 - 18 🏌🏻 @ Bighorn Golf Club',
 			'2/19 - 36 🏌🏻 @ Desert Willow',
 			'2/20 - 18 🏌🏻 @ Palm Desert, 🛫 LAX'
-		]
+		],
+		metadata: {
+			bgColorClass: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-md border-none'
+		}
 	}
 };
 

@@ -1,10 +1,8 @@
 <script lang="ts">
-	import type { Metadata } from './$types';
-	export let metadata: Metadata;
-	export let bgColor = 'bg-white';
+	export let metadata: any;
 </script>
 
-<div class="relative {bgColor} flex flex-col rounded-lg border-2 {metadata.borderClass}">
-	<slot name="title"/>
+<div class="relative flex flex-col rounded-lg border-2 {metadata.borderClass} {metadata.bgColorClass}">
+	<slot name="title" />
 	<slot name="content" />
 </div>

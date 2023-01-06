@@ -3,8 +3,12 @@ const data = {
 	info: {
 		name: 'Saalbach 2023',
 		emoji: ['🎿 🇦🇹 🍺 🏔️'],
-		startDate: '2023-01-27',
-		endDate: '2023-02-04'
+		startDate: '2023-01-28',
+		endDate: '2023-02-04',
+		metadata: {
+			bgColorClass: 'bg-gradient-to-b from-blue-100/80 to-blue-300 shadow-md',
+			borderClass: 'border-white'
+		}
 	},
 	location: {
 		city: 'Saalbach',
@@ -14,11 +18,15 @@ const data = {
 		lng: 12.923908356488695,
 		zoom: 7,
 		timezone: 'Europe/Vienna',
-		temperatureGuage: 'C'
+		temperatureGuage: 'C',
+		metadata: {
+			bgColorClass: 'bg-gradient-to-b from-blue-100/80 to-blue-300 shadow-md',
+			borderClass: 'border-white'
+		}
 	},
 	metadata: {
 		headerColorClass: 'text-blue-900',
-		bgColorClass: 'bg-blue-100',
+		bgColorClass: 'bg-gradient-to-b from-blue-100/80 to-blue-300 shadow-md',
 		borderClass: 'border-blue-200',
 		bgImageClasses: ['bg-ski-1', 'bg-ski-2']
 	},
@@ -86,14 +94,14 @@ const data = {
 		title: '✈️ Transport',
 		outbound: {
 			from: {
-				date: '2023-01-27',
+				date: '2023-01-28',
 				time: '15:30',
 				city: 'East Midlands',
 				airport: 'EMA',
 				flight: 'TOM7638'
 			},
 			to: {
-				date: '2023-01-27',
+				date: '2023-01-28',
 				time: '18:30',
 				city: 'Salzburg',
 				airport: 'SZG'
@@ -113,18 +121,24 @@ const data = {
 				city: 'East Midlands',
 				airport: 'EMA'
 			}
+		},
+		metadata: {
+			bgColorClass: 'bg-gradient-to-b from-blue-100/80 to-blue-300 shadow-md'
 		}
 	},
 	accommodation: {
 		title: '🏡 Accommodation',
 		name: "Hotel Panther'A",
 		description:
-			"Thanks to its central location in the middle of Saalbach's pedestrian zone, the Hotel Panther'A with Ski-In & Ski-Out is the perfect starting point for all activities. View webcams here >",
-		url: 'https://www.saalbach.com/en/live-info/livecams',
+			"Thanks to its central location in the middle of Saalbach's pedestrian zone, the Hotel Panther'A with Ski-In & Ski-Out is the perfect starting point for all activities.",
+		url: 'https://www.hotel-panthera.at/en/',
 		location: {
 			lat: 47.39303746653127,
 			lng: 12.63687086739732,
 			city: 'Saalbach'
+		},
+		metadata: {
+			bgColorClass: 'bg-gradient-to-b from-blue-100/80 to-blue-300 shadow-md'
 		}
 	},
 	itinerary: {
@@ -138,7 +152,11 @@ const data = {
 			'2-02 - ⛷️ 🌭 🧖🏻 🍺 🛌',
 			'2-03 - ⛷️ 🌭 🧖🏻 🍺 🛌',
 			'2-04 - ✈️ EMA'
-		]
+		],
+		metadata: {
+			bgColorClass: 'bg-gradient-to-b from-blue-100/80 to-blue-300 shadow-md',
+			borderClass: 'border-white'
+		}
 	}
 };
 

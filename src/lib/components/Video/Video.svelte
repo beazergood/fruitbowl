@@ -9,13 +9,13 @@
 <Card {metadata}>
 	<div
 		slot="title"
-		class="text-md text-left lext-lg text-gray-700 font-semibold mb-2 absolute top-4 bg-white/50 left-2 p-2 rounded-lg z-10"
+		class="text-md text-left text-gray-700 font-semibold mb-2 absolute top-2 bg-white/50 left-2 p-1 rounded-lg z-10"
 	>
 		📽️ Live Video
 	</div>
 	<div slot="content">
 		<div id="map" class="block ">
-			<video controls autoplay loop playsinline style="max-width: 100%;" class="rounded-lg">
+			<video controls autoplay loop playsinline style="max-width: 100%;" class="rounded-md">
 				<source src={video.src} />
 			</video>
 		</div>

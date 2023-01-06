@@ -2,17 +2,16 @@
 	import { DateTime } from 'luxon';
 	import { onMount } from 'svelte';
 
-	import type { Info, Metadata } from './$types';
+	import type { Info } from './$types';
 
 	import Card from '../Card/Card.svelte';
 
-	export let info: Info;
-	export let metadata: Metadata;
+	export let data: Info;
 
 	/***
 	 * @description The difference in days between the start and end date
 	 */
-	let diffInDays: number;
+	let diffInDays: number | string = "...";
 
 	/**
 	 * @description Returns a random index from the bgClasses array
@@ -22,18 +21,18 @@
 	let displayDates = '';
 
 	onMount(async () => {
-		var end = DateTime.fromISO(info.startDate); // the start date of the event
+		var end = DateTime.fromISO(data.startDate); // the start date of the event
 		var start = DateTime.now();
 
 		diffInDays = Math.floor(end.diff(start, 'days').toObject().days);
 
-		const startDate = DateTime.fromISO(info.startDate).toFormat('dd MMM');
-		const endDate = DateTime.fromISO(info.endDate).toFormat('dd MMM yy');
+		const startDate = DateTime.fromISO(data.startDate).toFormat('dd MMM');
+		const endDate = DateTime.fromISO(data.endDate).toFormat('dd MMM yy');
 		displayDates = `${startDate} - ${endDate}`;
 	});
 </script>
 
-<Card {metadata}>
+<Card metadata={data.metadata}>
 	<div slot="title" class="text-md text-left lext-lg text-gray-700 font-semibold p-2">
 		📅 When
 	</div>
@@ -44,22 +43,3 @@
 		<h3 class="text-xl font-bold text-center text-gray-700">{displayDates}</h3>
 	</div>
 </Card>
-
-<style>
-	.mapboxgl-popup {
-		max-width: 400px;
-		font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-	}
-
-	.marker {
-		display: block;
-		border: none;
-		border-radius: 50%;
-		cursor: pointer;
-		padding: 0;
-	}
-
-	:global(.mapboxgl-map) {
-		height: 200px;
-	}
-</style>

@@ -1,12 +1,11 @@
 <script lang="ts">
 	import Card from '../Card/Card.svelte';
-	import type { Accommodation, Metadata } from './$types';
+	import type { Accommodation } from './$types';
 
-	export let metadata: Metadata;
 	export let data: Accommodation;
 </script>
 
-<Card {metadata}>
+<Card metadata={data.metadata}>
 	<h1 slot="title" class="text-md text-left lext-lg text-gray-700 font-semibold p-2">
 		{data.title}
 	</h1>

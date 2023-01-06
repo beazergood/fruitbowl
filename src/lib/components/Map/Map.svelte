@@ -1,12 +1,8 @@
 <script lang="ts">
 	import { Map, Marker } from '@beyonk/svelte-mapbox';
-
-	import type { Metadata, Location, GeoWaypoints } from './$types';
+	import type {  Location, GeoWaypoints } from './$types';
 	import { PUBLIC_MAPBOX_API_TOKEN } from '$env/static/public';
-
 	import Card from '../Card/Card.svelte';
-
-	export let metadata: Metadata;
 
 	export let location: Location;
 	export let data: GeoWaypoints;
@@ -16,19 +12,24 @@
 		addControl: (arg0: mapboxgl.FullscreenControl) => void;
 	};
 
-    function onReady() {
+	function onReady() {
 		mapComponent.flyTo({
-			center: [location.lng,location.lat],
+			center: [location.lng, location.lat],
 			zoom: location.zoom,
 			speed: 0.6
 		});
 	}
 </script>
 
-<Card {metadata}>
-	<div slot="title"  class="text-md text-left lext-lg text-gray-700 font-semibold mb-2 absolute top-4 bg-white/50 left-2 p-2 rounded-lg z-10">{data.title}</div>
+<Card metadata={location.metadata}>
+	<div
+		slot="title"
+		class="text-md text-left lext-lg text-gray-700 font-semibold mb-2 absolute top-2 bg-white/50 left-2 p-1 rounded-lg z-10"
+	>
+		{data.title}
+	</div>
 	<div slot="content">
-		<div id="map" class="block w-100 h-64">
+		<div id="map" class="block h-64 ">
 			<Map
 				accessToken={PUBLIC_MAPBOX_API_TOKEN}
 				style="mapbox://styles/mapbox/outdoors-v11"
@@ -36,7 +37,6 @@
 				on:ready={onReady}
 				center={[location.lng, location.lat]}
 				zoom="4"
-				options={{ cooperativeGestures: true }}
 			>
 				{#if data}
 					{#each data.features as waypoint}
@@ -55,3 +55,22 @@
 		</div>
 	</div>
 </Card>
+
+<style>
+	.mapboxgl-popup {
+		max-width: 400px;
+		font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	}
+
+	.marker {
+		display: block;
+		border: none;
+		border-radius: 50%;
+		cursor: pointer;
+		padding: 0;
+	}
+
+	:global(.mapboxgl-map) {
+		height: 200px;
+	}
+</style>

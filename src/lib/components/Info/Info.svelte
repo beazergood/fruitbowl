@@ -9,10 +9,11 @@
 	const metadataUpdated = {
 		...metadata,
 		borderClass: 'border-transparent',
+		bgColorClass: 'bg-transparent',
 	};
 </script>
 
-<Card metadata={metadataUpdated} bgColor={'bg-transparent'}>
+<Card metadata={metadataUpdated}>
 	<div
 		slot="title"
 		class="text-3xl font-bold text-center {metadata.headerColorClass} stroke-cyan-500 p-2 mb-2"

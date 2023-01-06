@@ -1,12 +1,9 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-
-	import type { Itinerary, Metadata } from './$types';
-
+	import type { Itinerary } from './$types';
 	import Card from '../Card/Card.svelte';
 
-	export let metadata: Metadata;
-	export let data: Itinerary;
+		export let data: Itinerary;
 
 	const dispatch = createEventDispatcher();
 
@@ -16,7 +13,7 @@
 	}
 </script>
 
-<Card {metadata}>
+<Card metadata={data.metadata}>
 	<h1 slot="title" class="text-md text-left lext-lg text-gray-700 font-semibold p-2">
 		{data.title}
 	</h1>

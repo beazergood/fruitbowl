@@ -2,9 +2,9 @@
 	import { DateTime } from 'luxon';
 
 	import Card from '../Card/Card.svelte';
-	import type { Transportation, Metadata } from './$types';
+	import type { Transportation } from './$types';
 
-	export let metadata: Metadata;
+	
 	export let data: Transportation;
 
 	let outboundDate = '';
@@ -27,7 +27,7 @@
 	setDateStrings();
 </script>
 
-<Card {metadata}>
+<Card metadata={data.metadata}>
 	<h1 slot="title" class="text-md text-left lext-lg text-gray-700 font-semibold p-2">
 		{data.title}
 	</h1>

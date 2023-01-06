@@ -4,7 +4,10 @@ const data = {
 		name: "Shane's 40th",
 		emoji: '🏌🏻 🥪 🏴󠁧󠁢󠁥󠁮󠁧󠁿 🍀 🍺',
 		startDate: '2023-03-16',
-		endDate: '2023-03-18'
+		endDate: '2023-03-18',
+		metadata: {
+			bgColorClass: 'bg-white/90 shadow-sm'
+		}
 	},
 	location: {
 		city: 'Sandwich',
@@ -14,17 +17,16 @@ const data = {
 		lng: 1.3708297050788336,
 		zoom: 12,
 		timezone: 'America%2FLos_Angeles',
-		temperatureGuage: 'C'
+		temperatureGuage: 'C',
+		metadata: {
+			bgColorClass: 'bg-white/90 shadow-sm'
+		}
 	},
 	metadata: {
 		headerColorClass: 'text-green-900',
-		bgColorClass: 'bg-green-800',
+		bgColorClass: 'bg-gradient-to-b from-green-200 to-green-500 shadow-sm',
 		borderClass: 'border-green-300',
-		bgImageClasses: [
-			'bg-princes-1',
-			'bg-princes-2',
-			'bg-princes-3'
-		]
+		bgImageClasses: ['bg-princes-1', 'bg-princes-2', 'bg-princes-3']
 	},
 	geoWaypoints: {
 		title: '📍 Where',
@@ -66,15 +68,21 @@ const data = {
 			lat: 51.29578638091663,
 			lng: 1.3708297050788336,
 			city: 'Sandwich'
+		},
+		metadata: {
+			bgColorClass: 'bg-white/90 shadow-sm'
 		}
 	},
 	itinerary: {
 		title: '🎯 Itinerary',
 		items: [
-			'3/16 - 🚙 to fuckin\' Kent, stay in Air BnB',
+			"3/16 - 🚙 to fuckin' Kent, stay in Air BnB",
 			'3/17 - 18 🏌🏻 @ Princes',
-			'2/18 - 18 🏌🏻 @ Princes, 🚙 home',
-		]
+			'2/18 - 18 🏌🏻 @ Princes, 🚙 home'
+		],
+		metadata: {
+			bgColorClass: 'bg-white/90 shadow-sm'
+		}
 	}
 };
 

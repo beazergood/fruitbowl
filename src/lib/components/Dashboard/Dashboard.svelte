@@ -39,10 +39,10 @@
 			<Info metadata={data.metadata} info={data.info} location={data.location} />
 
 			<!-- Countdown widget -->
-			<Countdown info={data.info} metadata={data.metadata} />
+			<Countdown data={data.info} />
 
 			<!-- Weather widget -->
-			<Weather data={data.location} metadata={data.metadata} />
+			<Weather data={data.location}/>
 
 			<!-- Video widget -->
 			{#if data.video}
@@ -50,17 +50,17 @@
 			{/if}
 
 			<!-- Map widget -->
-			<Map location={data.location} data={data.geoWaypoints} metadata={data.metadata} />
+			<Map location={data.location} data={data.geoWaypoints} />
 
 			<!-- Transport widget -->
 			{#if data.transport}
-				<Transport data={data.transport} metadata={data.metadata} />
+				<Transport data={data.transport} />
 			{/if}
 			<!-- Accomodation widget -->
-			<Accommodation data={data.accommodation} metadata={data.metadata} />
+			<Accommodation data={data.accommodation} />
 
 			<!-- Itinerary widget -->
-			<Itinerary data={data.itinerary} metadata={data.metadata} />
+			<Itinerary data={data.itinerary} />
 		</div>
 	</div>
 </div>
