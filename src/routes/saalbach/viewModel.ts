@@ -22,6 +22,10 @@ const data = {
 		borderClass: 'border-blue-200',
 		bgImageClasses: ['bg-ski-1', 'bg-ski-2']
 	},
+	video: {
+		title: '📺 Live',
+		src: 'https://video.panomax.com/cams/1306/videos/1306_mobile.mp4'
+	},
 	geoWaypoints: {
 		title: '📍 Where',
 		type: 'FeatureCollection',

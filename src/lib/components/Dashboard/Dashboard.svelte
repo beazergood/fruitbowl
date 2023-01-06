@@ -8,6 +8,7 @@
 	import Itinerary from '../Itinerary/Itinerary.svelte';
 	import Transport from '../Transport/Transport.svelte';
 	import Map from '../Map/Map.svelte';
+	import Video from '../Video/Video.svelte';
 
 	export let data: any;
 
@@ -31,10 +32,8 @@
 	});
 </script>
 
-<div class="{data.metadata.bgColorClass}">
-	<div
-		class="w-screen pt-28 bg-no-repeat bg-contain flex flex-col items-center p-4 {bgImage}"
-	>
+<div class={data.metadata.bgColorClass}>
+	<div class="w-screen pt-28 bg-no-repeat bg-contain flex flex-col items-center p-4 {bgImage}">
 		<div class="flex flex-col gap-4 justify-center w-full md:w-1/2">
 			<!-- Info widget -->
 			<Info metadata={data.metadata} info={data.info} location={data.location} />
@@ -44,6 +43,11 @@
 
 			<!-- Weather widget -->
 			<Weather data={data.location} metadata={data.metadata} />
+
+			<!-- Video widget -->
+			{#if data.video}
+				<Video video={data.video} metadata={data.metadata}/>
+			{/if}
 
 			<!-- Map widget -->
 			<Map location={data.location} data={data.geoWaypoints} metadata={data.metadata} />
