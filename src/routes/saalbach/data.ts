@@ -1,13 +1,19 @@
 const data = {
 	id: 1,
+	meta: {
+		headerClasses: 'text-blue-900',
+		bgClasses: 'bg-gradient-to-b from-blue-100/80 to-blue-300 shadow-md border-blue-200',
+		bgImageClasses: ['bg-ski-1', 'bg-ski-2']
+	},
 	info: {
 		name: 'Saalbach 2023',
 		emoji: ['🎿 🇦🇹 🍺 🏔️'],
 		startDate: '2023-01-28',
 		endDate: '2023-02-04',
-		metadata: {
-			bgColorClass: 'bg-gradient-to-b from-blue-100/80 to-blue-300 shadow-md',
-			borderClass: 'border-white'
+		meta: {
+			bgClasses: 'bg-white/80 shadow-md',
+			headerClasses:
+				'font-paytone text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-600'
 		}
 	},
 	location: {
@@ -19,20 +25,16 @@ const data = {
 		zoom: 7,
 		timezone: 'Europe/Vienna',
 		temperatureGuage: 'C',
-		metadata: {
-			bgColorClass: 'bg-gradient-to-b from-blue-100/80 to-blue-300 shadow-md',
-			borderClass: 'border-white'
+		meta: {
+			bgClasses: 'bg-white/80 shadow-md border-white'
 		}
-	},
-	metadata: {
-		headerColorClass: 'text-blue-900',
-		bgColorClass: 'bg-gradient-to-b from-blue-100/80 to-blue-300 shadow-md',
-		borderClass: 'border-blue-200',
-		bgImageClasses: ['bg-ski-1', 'bg-ski-2']
 	},
 	video: {
 		title: '📺 Live',
-		src: 'https://video.panomax.com/cams/1306/videos/1306_mobile.mp4'
+		src: 'https://video.panomax.com/cams/1306/videos/1306_mobile.mp4',
+		meta: {
+			bgClasses: 'bg-white shadow-md border-white border-2'
+		}
 	},
 	geoWaypoints: {
 		title: '📍 Where',
@@ -122,8 +124,8 @@ const data = {
 				airport: 'EMA'
 			}
 		},
-		metadata: {
-			bgColorClass: 'bg-gradient-to-b from-blue-100/80 to-blue-300 shadow-md'
+		meta: {
+			bgClasses: 'bg-white shadow-md border-none'
 		}
 	},
 	accommodation: {
@@ -137,8 +139,8 @@ const data = {
 			lng: 12.63687086739732,
 			city: 'Saalbach'
 		},
-		metadata: {
-			bgColorClass: 'bg-gradient-to-b from-blue-100/80 to-blue-300 shadow-md'
+		meta: {
+			bgClasses: 'bg-white shadow-md border-none'
 		}
 	},
 	itinerary: {
@@ -153,9 +155,8 @@ const data = {
 			'2-03 - ⛷️ 🌭 🧖🏻 🍺 🛌',
 			'2-04 - ✈️ EMA'
 		],
-		metadata: {
-			bgColorClass: 'bg-gradient-to-b from-blue-100/80 to-blue-300 shadow-md',
-			borderClass: 'border-white'
+		meta: {
+			bgClasses: 'bg-white shadow-md border-none'
 		}
 	}
 };

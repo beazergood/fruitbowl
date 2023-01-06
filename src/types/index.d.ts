@@ -3,7 +3,7 @@ export type Event = {
 	info: Info;
 	location: Location;
 	accommodation: Accommodation;
-	meta: Metadata;
+	meta: meta;
 	itinerary: Itinerary;
 	transport: Transportation;
 	geoWaypoints: GeoWaypoints;
@@ -14,6 +14,10 @@ export type Info = {
 	emoji: string;
 	startDate: string;
 	endDate: string;
+	meta: {
+		bgClasses: string;
+		headerClasses: string;
+	};
 };
 
 export type Accommodation = {
@@ -21,17 +25,24 @@ export type Accommodation = {
 	description: string;
 	url: string;
 	location: Location;
+	meta: {
+		bgClasses: string;
+	}
 };
 
-export type Metadata = {
+export type meta = {
 	bgImageClasses: string[];
-	borderClass: string;
-	bgColorClass: string;
-	headerColorClass: string;
+	
+	bgClasses: string;
+	headerClasses: string;
 };
+
 export type Itinerary = {
 	title: string;
 	items: string[];
+	meta: {
+		bgClasses: string;
+	}
 };
 
 export type Location = {
@@ -51,6 +62,9 @@ export type Transportation = {
 	inbound: {
 		from: FlightData;
 		to: FlightData;
+	};
+	meta: {
+		bgClasses: string;
 	};
 };
 

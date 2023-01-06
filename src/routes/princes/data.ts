@@ -1,12 +1,20 @@
 const data = {
 	id: 2,
+	meta: {
+		headerClasses: 'text-green-900',
+		bgClasses: 'bg-gradient-to-b from-green-200 to-green-500 shadow-sm',
+		borderClass: 'border-green-300',
+		bgImageClasses: ['bg-princes-1', 'bg-princes-2', 'bg-princes-3']
+	},
 	info: {
 		name: "Shane's 40th",
 		emoji: '🏌🏻 🥪 🏴󠁧󠁢󠁥󠁮󠁧󠁿 🍀 🍺',
 		startDate: '2023-03-16',
 		endDate: '2023-03-18',
-		metadata: {
-			bgColorClass: 'bg-white/90 shadow-sm'
+		meta: {
+			bgClasses: 'bg-white/80 shadow-md',
+			borderClass: 'border-white',
+			headerClasses: 'font-paytone text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-600'
 		}
 	},
 	location: {
@@ -18,15 +26,10 @@ const data = {
 		zoom: 12,
 		timezone: 'America%2FLos_Angeles',
 		temperatureGuage: 'C',
-		metadata: {
-			bgColorClass: 'bg-white/90 shadow-sm'
+		meta: {
+			bgClasses: 'bg-white/90 shadow-sm',
+			borderClass: 'border-white',
 		}
-	},
-	metadata: {
-		headerColorClass: 'text-green-900',
-		bgColorClass: 'bg-gradient-to-b from-green-200 to-green-500 shadow-sm',
-		borderClass: 'border-green-300',
-		bgImageClasses: ['bg-princes-1', 'bg-princes-2', 'bg-princes-3']
 	},
 	geoWaypoints: {
 		title: '📍 Where',
@@ -69,8 +72,9 @@ const data = {
 			lng: 1.3708297050788336,
 			city: 'Sandwich'
 		},
-		metadata: {
-			bgColorClass: 'bg-white/90 shadow-sm'
+		meta: {
+			bgClasses: 'bg-white/90 shadow-sm',
+			borderClass: 'border-white',
 		}
 	},
 	itinerary: {
@@ -80,8 +84,8 @@ const data = {
 			'3/17 - 18 🏌🏻 @ Princes',
 			'2/18 - 18 🏌🏻 @ Princes, 🚙 home'
 		],
-		metadata: {
-			bgColorClass: 'bg-white/90 shadow-sm'
+		meta: {
+			bgClasses: 'bg-white/90 shadow-md border-none'
 		}
 	}
 };

@@ -1,7 +1,7 @@
 export const getEvents = () => {
     return [{
         id: 1,
-        metadata: {
+        meta: {
             theme: 'Golf',
             type: 'Trip',
             status: 'Planned',

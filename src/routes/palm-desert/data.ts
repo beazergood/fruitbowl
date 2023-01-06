@@ -1,12 +1,19 @@
 const data = {
 	id: 2,
+	meta: {
+		headerClasses: 'text-green-900',
+		bgClasses: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-sm border-green-300',
+		bgImageClasses: ['bg-golf-1', 'bg-golf-2', 'bg-golf-3', 'bg-golf-7']
+	},
 	info: {
 		name: 'Fruitbowl 2023',
 		emoji: '🫐 🍉 🍊 🥑',
 		startDate: '2023-02-17',
 		endDate: '2023-02-20',
-		metadata: {
-			bgColorClass: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-md border-none'
+		meta: {
+			bgClasses: 'bg-white/80 shadow-md',
+			headerClasses:
+				'font-paytone text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-yellow-600 text-orange-400'
 		}
 	},
 	location: {
@@ -18,15 +25,9 @@ const data = {
 		zoom: 9,
 		timezone: 'America%2FLos_Angeles',
 		temperatureGuage: 'F',
-		metadata: {
-			bgColorClass: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-md border-none'
+		meta: {
+			bgClasses: 'bg-white/80 shadow-md border-white rounded-md'
 		}
-	},
-	metadata: {
-		headerColorClass: 'text-green-900',
-		bgColorClass: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-sm',
-		borderClass: 'border-green-300',
-		bgImageClasses: ['bg-golf-1', 'bg-golf-2', 'bg-golf-3', 'bg-golf-7']
 	},
 	geoWaypoints: {
 		title: '📍 Where',
@@ -114,8 +115,8 @@ const data = {
 				airport: 'LHR T3'
 			}
 		},
-		metadata: {
-			bgColorClass: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-md border-none'
+		meta: {
+			bgClasses: 'bg-white shadow-md border-none'
 		}
 	},
 	accommodation: {
@@ -129,8 +130,8 @@ const data = {
 			lng: 12.7,
 			city: 'Saalbach'
 		},
-		metadata: {
-			bgColorClass: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-md border-none'
+		meta: {
+			bgClasses: 'bg-white shadow-md border-none'
 		}
 	},
 	itinerary: {
@@ -141,8 +142,8 @@ const data = {
 			'2/19 - 36 🏌🏻 @ Desert Willow',
 			'2/20 - 18 🏌🏻 @ Palm Desert, 🛫 LAX'
 		],
-		metadata: {
-			bgColorClass: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-md border-none'
+		meta: {
+			bgClasses: 'bg-white shadow-md border-none'
 		}
 	}
 };
