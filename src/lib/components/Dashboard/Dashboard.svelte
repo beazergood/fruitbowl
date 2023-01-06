@@ -33,7 +33,7 @@
 
 <div class="{data.metadata.bgColorClass}">
 	<div
-		class="w-screen pt-44 bg-no-repeat bg-contain flex flex-col items-center p-4 {bgImage}"
+		class="w-screen pt-28 bg-no-repeat bg-contain flex flex-col items-center p-4 {bgImage}"
 	>
 		<div class="flex flex-col gap-4 justify-center w-full md:w-1/2">
 			<!-- Info widget -->
