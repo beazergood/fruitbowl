@@ -78,18 +78,6 @@ const data = {
 					coordinates: [12.65456083300746, 47.409820379870645]
 				}
 			},
-			{
-				type: 'Feature',
-				properties: {
-					description: 'Palm Desert Golf Club',
-					iconSize: [24, 24],
-					icon: '🏌🏻'
-				},
-				geometry: {
-					type: 'Point',
-					coordinates: [-116.31741064417697, 33.75093163733706]
-				}
-			}
 		]
 	},
 	transport: {
