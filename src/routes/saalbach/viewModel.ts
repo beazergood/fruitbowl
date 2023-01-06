@@ -2,7 +2,7 @@ const data = {
 	id: 1,
 	info: {
 		name: 'Saalbach 2023',
-		emoji: ['🎿 🇦🇹 🏔️'],
+		emoji: ['🎿 🇦🇹 🍺 🏔️'],
 		startDate: '2023-01-27',
 		endDate: '2023-02-04'
 	},

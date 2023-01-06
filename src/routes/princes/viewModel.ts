@@ -2,13 +2,13 @@ const data = {
 	id: 2,
 	info: {
 		name: "Shane's 40th",
-		emoji: '🏌🏻 🏴󠁧󠁢󠁥󠁮󠁧󠁿 🍀 🍺',
+		emoji: '🏌🏻 🥪 🏴󠁧󠁢󠁥󠁮󠁧󠁿 🍀 🍺',
 		startDate: '2023-03-16',
 		endDate: '2023-03-18'
 	},
 	location: {
 		city: 'Sandwich',
-		state: 'Fuckin Kent',
+		state: 'Kent',
 		country: 'UK',
 		lat: 51.29578638091663,
 		lng: 1.3708297050788336,
@@ -60,7 +60,7 @@ const data = {
 		title: '🏡 Accommodation',
 		name: 'Princes Golf Club Lodge',
 		description:
-			"Ask about the burger Collin Morikawa had after winning the Open, you'll get a free headache",
+			"Ask about the burger Collin Morikawa had after winning the Open and you'll get a free headache",
 		url: 'https://www.princesgolfclub.co.uk/',
 		location: {
 			lat: 51.29578638091663,
@@ -71,10 +71,9 @@ const data = {
 	itinerary: {
 		title: '🎯 Itinerary',
 		items: [
-			'3/16 - 🚙 to Kent, stay in Air BnB',
+			'3/16 - 🚙 to fuckin\' Kent, stay in Air BnB',
 			'3/17 - 18 🏌🏻 @ Princes',
 			'2/18 - 18 🏌🏻 @ Princes, 🚙 home',
-			"2/19 - Don't forget Mothers Day!"
 		]
 	}
 };
