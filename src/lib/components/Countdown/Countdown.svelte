@@ -34,10 +34,10 @@
 </script>
 
 <Card {metadata}>
-	<div slot="title">
-		<h1 class="text-md text-left text-gray-700 font-semibold">📅 When</h1>
+	<div slot="title" class="text-md text-left lext-lg text-gray-700 font-semibold p-2">
+		📅 When
 	</div>
-	<div slot="content">
+	<div slot="content" class="px-2 pb-2">
 		<h1 class="text-3xl font-bold text-center text-gray-700 -mt-4">
 			<span class="text-lg mr-2">In</span>{diffInDays} Days
 		</h1>

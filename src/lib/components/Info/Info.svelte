@@ -11,11 +11,11 @@
 <Card {metadata}>
 	<div
 		slot="title"
-		class="text-3xl font-bold text-center {metadata.headerColorClass} stroke-cyan-500"
+		class="text-3xl font-bold text-center {metadata.headerColorClass} stroke-cyan-500 p-2"
 	>
 		{info.name}
 	</div>
-	<div slot="content">
+	<div slot="content" class="pb-2">
 		<h3 class="text-xl font-bold text-center">{info.emoji}</h3>
 		<h3 class="text-lg font-bold text-center {metadata.headerColorClass}">
 			{location.city}, {location.state}

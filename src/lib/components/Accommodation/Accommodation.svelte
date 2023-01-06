@@ -7,10 +7,10 @@
 </script>
 
 <Card {metadata}>
-	<h1 slot="title" class="text-md text-left lext-lg text-gray-700 font-semibold mb-2">
+	<h1 slot="title" class="text-md text-left lext-lg text-gray-700 font-semibold p-2">
 		{data.title}
 	</h1>
-	<div slot="content">
+	<div slot="content" class="px-2 pb-2">
 		<p class="text-sm font-medium mt-2">{data.name}</p>
 		<p class="text-sm">
 			{data.description}

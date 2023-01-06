@@ -26,7 +26,7 @@
 </script>
 
 <Card {metadata}>
-	<div slot="title">{data.title}</div>
+	<div slot="title"  class="text-md text-left lext-lg text-gray-700 font-semibold mb-2 absolute top-4 bg-white/50 left-2 p-2 rounded-lg z-10">{data.title}</div>
 	<div slot="content">
 		<div id="map" class="block w-100 h-64">
 			<Map

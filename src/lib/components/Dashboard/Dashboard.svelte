@@ -33,27 +33,30 @@
 
 <div class="{data.metadata.bgColorClass} h-screen">
 	<div
-		class="flex flex-col gap-4 justify-start w-screen pt-10 bg-no-repeat bg-contain bg p-4 {bgImage}"
+		class="w-screen pt-44 bg-no-repeat bg-contain flex flex-col items-center p-4 {bgImage}"
 	>
-		<!-- Info widget -->
-		<Info metadata={data.metadata} info={data.info} location={data.location} />
+		<div class="flex flex-col gap-4 justify-center w-full md:w-1/2">
+			<!-- Info widget -->
+			<Info metadata={data.metadata} info={data.info} location={data.location} />
 
-		<!-- Countdown widget -->
-		<Countdown info={data.info} metadata={data.metadata} />
+			<!-- Countdown widget -->
+			<Countdown info={data.info} metadata={data.metadata} />
 
-		<!-- Weather widget -->
-		<Weather data={data.location} metadata={data.metadata} />
+			<!-- Weather widget -->
+			<Weather data={data.location} metadata={data.metadata} />
 
-		<!-- Map widget -->
-		<Map location={data.location} data={data.geoWaypoints} metadata={data.metadata} />
+			<!-- Map widget -->
+			<Map location={data.location} data={data.geoWaypoints} metadata={data.metadata} />
 
-		<!-- Transport widget -->
-		<Transport data={data.transport} metadata={data.metadata} />
+			<!-- Transport widget -->
+			{#if data.transport}
+				<Transport data={data.transport} metadata={data.metadata} />
+			{/if}
+			<!-- Accomodation widget -->
+			<Accommodation data={data.accommodation} metadata={data.metadata} />
 
-		<!-- Accomodation widget -->
-		<Accommodation data={data.accommodation} metadata={data.metadata} />
-
-		<!-- Itinerary widget -->
-		<Itinerary data={data.itinerary} metadata={data.metadata} />
+			<!-- Itinerary widget -->
+			<Itinerary data={data.itinerary} metadata={data.metadata} />
+		</div>
 	</div>
 </div>

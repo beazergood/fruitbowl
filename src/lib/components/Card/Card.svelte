@@ -3,7 +3,7 @@
 	export let metadata: Metadata;
 </script>
 
-<div class="bg-white/80 flex flex-col p-2 rounded-lg border-2 {metadata.borderClass}">
-	<slot name="title" class="text-md text-left lext-lg text-gray-700 font-semibold mb-2"/>
+<div class="relative bg-white flex flex-col rounded-lg border-2 {metadata.borderClass}">
+	<slot name="title"/>
 	<slot name="content" />
 </div>

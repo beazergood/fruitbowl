@@ -17,10 +17,10 @@
 </script>
 
 <Card {metadata}>
-	<h1 slot="title">
+	<h1 slot="title" class="text-md text-left lext-lg text-gray-700 font-semibold p-2">
 		{data.title}
 	</h1>
-	<div slot="content">
+	<div slot="content" class="px-2 pb-2">
 		{#if data?.items?.length}
 			<ul>
 				{#each data.items as item}
