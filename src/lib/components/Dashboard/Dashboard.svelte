@@ -31,7 +31,7 @@
 	});
 </script>
 
-<div class="{data.metadata.bgColorClass} h-screen">
+<div class="{data.metadata.bgColorClass}">
 	<div
 		class="w-screen pt-44 bg-no-repeat bg-contain flex flex-col items-center p-4 {bgImage}"
 	>
