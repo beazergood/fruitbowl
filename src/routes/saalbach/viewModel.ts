@@ -116,7 +116,7 @@ const data = {
 		name: "Hotel Panther'A",
 		description:
 			"Thanks to its central location in the middle of Saalbach's pedestrian zone, the Hotel Panther'A with Ski-In & Ski-Out is the perfect starting point for all activities. View webcams here >",
-		link: 'https://www.saalbach.com/en/live-info/livecams',
+		url: 'https://www.saalbach.com/en/live-info/livecams',
 		location: {
 			lat: 47.39303746653127,
 			lng: 12.63687086739732,

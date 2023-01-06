@@ -14,7 +14,7 @@
 		<p class="text-sm font-medium mt-2">{data.name}</p>
 		<p class="text-sm">
 			{data.description}
-			<a href={data.url} target="_blank" class="text-blue-600 underline">View website</a>
+			<a href={data.url} target="_blank" class="text-blue-600 underline cursor-pointer">View website</a>
 		</p>
 	</div>
 </Card>
