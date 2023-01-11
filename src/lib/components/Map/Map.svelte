@@ -36,7 +36,7 @@
 				bind:this={mapComponent}
 				on:ready={onReady}
 				center={[location.lng, location.lat]}
-				zoom="4"
+				zoom="3"
 			>
 				{#if data}
 					{#each data.features as waypoint}

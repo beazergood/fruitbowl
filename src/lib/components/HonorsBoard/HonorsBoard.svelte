@@ -83,7 +83,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="mb-10">
+	<div class="mb-20">
 		<button
 			class="rounded-md p-2 bg-gray-200/70 text-black"
 			on:click={() => (showEmoji = !showEmoji)}
