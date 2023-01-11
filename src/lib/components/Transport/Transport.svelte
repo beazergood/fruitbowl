@@ -23,7 +23,7 @@
 		inboundTakeoff = DateTime.fromISO(data.inbound.from.time).toFormat('HH:mm');
 		inboundLanding = DateTime.fromISO(data.inbound.to.time).toFormat('HH:mm');
 	}
-	if (data.outbound && data.inbount) setDateStrings();
+	if (!data.other) setDateStrings();
 </script>
 
 <Card meta={data.meta}>
