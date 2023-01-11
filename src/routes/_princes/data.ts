@@ -15,7 +15,8 @@ const data = {
 		meta: {
 			bgClasses: 'bg-white/80 shadow-md',
 			borderClass: 'border-white',
-			headerClasses: 'font-paytone text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-600'
+			headerClasses:
+				'font-paytone text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-600'
 		}
 	},
 	location: {
@@ -29,7 +30,7 @@ const data = {
 		temperatureGuage: 'C',
 		meta: {
 			bgClasses: 'bg-white/90 shadow-sm',
-			borderClass: 'border-white',
+			borderClass: 'border-white'
 		}
 	},
 	geoWaypoints: {
@@ -75,15 +76,32 @@ const data = {
 		},
 		meta: {
 			bgClasses: 'bg-white/90 shadow-sm',
-			borderClass: 'border-white',
+			borderClass: 'border-white'
 		}
 	},
 	itinerary: {
 		title: '🎯 Itinerary',
 		items: [
-			"3/16 - 🚙 to fuckin' Kent, stay in Air BnB",
-			'3/17 - 18 🏌🏻 @ Princes',
-			'2/18 - 18 🏌🏻 @ Princes, 🚙 home'
+			{
+				date: '3/16',
+				description: '🚙 to Kent'
+			},
+			{
+				date: '3/16',
+				description: '🏡 stay in Air BnB'
+			},
+			{
+				date: '3/17',
+				description: '🏌🏻 @ Princes'
+			},
+			{
+				date: '2/18',
+				description: '🏌🏻 @ Princes'
+			},
+			{
+				date: '2/18',
+				description: '🚙 home'
+			}
 		],
 		meta: {
 			bgClasses: 'bg-white/90 shadow-md border-none'
