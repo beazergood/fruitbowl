@@ -48,73 +48,74 @@ const data = {
 			{
 				type: 'Feature',
 				properties: {
-					description: 'Bighorn Golf Club',
+					description: 'Shadow Ridge',
 					iconSize: [24, 24],
 					icon: '🏌🏻'
 				},
 				geometry: {
 					type: 'Point',
-					coordinates: [-116.40899741534282, 33.67953802551937]
+					coordinates: [-116.38446162917555, 33.782479649851254]
 				}
 			},
 			{
 				type: 'Feature',
 				properties: {
-					description: 'Desert Willow Golf Course',
+					description: 'Classic Club',
 					iconSize: [24, 24],
 					icon: '🏌🏻'
 				},
 				geometry: {
 					type: 'Point',
-					coordinates: [-116.36666367301228, 33.766793430727844]
+					coordinates: [-116.34412154727086, 33.784819031611924]
 				}
 			},
 			{
 				type: 'Feature',
 				properties: {
-					description: 'Palm Desert Golf Club',
+					description: 'SilverRock Resort',
 					iconSize: [24, 24],
 					icon: '🏌🏻'
 				},
 				geometry: {
 					type: 'Point',
-					coordinates: [-116.31741064417697, 33.75093163733706]
+					coordinates: [-116.28187167327688, 33.66838170615431]
 				}
 			}
 		]
 	},
 	transport: {
 		title: '✈️ Transport',
-		outbound: {
-			from: {
-				date: '2023-02-16',
-				time: '12:20',
-				city: 'London',
-				airport: 'LHR T3',
-				flight: 'VS 7'
-			},
-			to: {
-				date: '2023-02-16',
-				time: '15:35',
-				city: 'Los Angeles',
-				airport: 'LAX'
-			}
-		},
-		inbound: {
-			from: {
-				date: '2023-02-20',
-				time: '22:10',
-				city: 'Los Angeles',
-				airport: 'LAX',
-				flight: 'VS 24'
-			},
-			to: {
-				date: '2023-02-21',
-				time: '16:25',
-				city: 'London',
-				airport: 'LHR T3'
-			}
-		},
+		other: 'Coming Soon',
+		// outbound: {
+		// 	from: {
+		// 		date: '2023-02-16',
+		// 		time: '12:20',
+		// 		city: 'London',
+		// 		airport: 'LHR T3',
+		// 		flight: 'VS 7'
+		// 	},
+		// 	to: {
+		// 		date: '2023-02-16',
+		// 		time: '15:35',
+		// 		city: 'Los Angeles',
+		// 		airport: 'LAX'
+		// 	}
+		// },
+		// inbound: {
+		// 	from: {
+		// 		date: '2023-02-20',
+		// 		time: '22:10',
+		// 		city: 'Los Angeles',
+		// 		airport: 'LAX',
+		// 		flight: 'VS 24'
+		// 	},
+		// 	to: {
+		// 		date: '2023-02-21',
+		// 		time: '16:25',
+		// 		city: 'London',
+		// 		airport: 'LHR T3'
+		// 	}
+		// },
 		meta: {
 			bgClasses: 'bg-white shadow-md border-none'
 		}
@@ -137,10 +138,37 @@ const data = {
 	itinerary: {
 		title: '🎯 Itinerary',
 		items: [
-			'2/17 - 🛬 LAX, 🚙 to Palm Desert',
-			'2/18 - 18 🏌🏻 @ Bighorn Golf Club',
-			'2/19 - 36 🏌🏻 @ Desert Willow',
-			'2/20 - 18 🏌🏻 @ Palm Desert, 🛫 LAX'
+			{
+				date: '2/17 pm',
+				description: '🛬 LAX'
+			},
+			{
+				date: '2/17 pm',
+				description: ' 🚙 to Palm Desert'
+			},
+			{
+				date: '2/18 am',
+				description: '🏌🏻 @ Shadow Ridge (tee times TBD)',
+				url: 'http://www.golfshadowridge.com/course/'
+			},
+			{
+				date: '2/19 am',
+				description: '🏌🏻 @ Classic Club - 8:50AM & 9:00AM',
+				url: 'https://classicclubgolf.com/course-information/'
+			},
+			{
+				date: '2/19 pm',
+				description: '🏌🏻 @ Classic Club - possible replay deal for additional 9 or 18 in afternoon'
+			},
+			{
+				date: '2/20 am',
+				description: '🏌🏻 @ SilverRock - 8:10AM & 8:20AM',
+				url: 'https://www.silverrock.org'
+			},
+			{
+				date: '2/20 pm',
+				description: '🛫 LAX'
+			}
 		],
 		meta: {
 			bgClasses: 'bg-white shadow-md border-none'
