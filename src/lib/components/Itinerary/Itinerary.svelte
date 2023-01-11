@@ -3,7 +3,7 @@
 	import type { Itinerary } from './$types';
 	import Card from '../Card/Card.svelte';
 
-		export let data: Itinerary;
+	export let data: Itinerary;
 
 	const dispatch = createEventDispatcher();
 
@@ -21,14 +21,21 @@
 		{#if data?.items?.length}
 			<ul>
 				{#each data.items as item}
-					<li class="text-sm">⦿ {item}</li>
+					<li class="text-md py-2 border-b border-gray-200">
+						⦿
+						{item.date}
+						{item.description}
+						{#if item.url}
+							<a href={data.url} target="_blank" class=" underline cursor-pointer">Website</a>
+						{/if}
+					</li>
 				{/each}
 			</ul>
 		{:else}
 			<div class="flex flex-col items-center">
-				<button class="text-center text-lg text-gray-400 border border-gray-400 w-20 rounded-lg"
-					on:click={addItineraryItems}
-					>+ Items</button
+				<button
+					class="text-center text-lg text-gray-400 border border-gray-400 w-20 rounded-lg"
+					on:click={addItineraryItems}>+ Items</button
 				>
 			</div>
 		{/if}
