@@ -1,5 +1,6 @@
 const data = {
-	id: 2,
+	_id: "3",
+	href: '/princes',
 	meta: {
 		headerClasses: 'text-green-900',
 		bgClasses: 'bg-gradient-to-b from-green-200 to-green-500 shadow-sm',
