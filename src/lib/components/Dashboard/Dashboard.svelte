@@ -32,8 +32,10 @@
 	});
 </script>
 
-<div class={data.meta.bgClasses}>
-	<div class="w-screen pt-28 bg-no-repeat bg-contain flex flex-col items-center p-4 {bgImage} bg-fixed">
+<div class="{data.meta.bgClasses} h-full">
+	<div
+		class="w-screen pt-28 bg-no-repeat bg-contain flex flex-col items-center p-4 {bgImage} bg-fixed"
+	>
 		<div class="flex flex-col gap-4 justify-center w-full md:w-1/2">
 			<!-- Info widget -->
 			<Info info={data.info} location={data.location} />
@@ -42,7 +44,7 @@
 			<Countdown data={data.info} />
 
 			<!-- Weather widget -->
-			<Weather data={data.location}/>
+			<Weather data={data.location} />
 
 			<!-- Video widget -->
 			{#if data.video}
