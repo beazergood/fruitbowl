@@ -1,5 +1,6 @@
 const data = {
-	id: 2,
+	_id: "2",
+	href: '/fruitbowl',
 	meta: {
 		headerClasses: 'text-green-900',
 		bgClasses: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-sm border-green-300',

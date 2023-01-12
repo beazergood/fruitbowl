@@ -1,5 +1,6 @@
 const data = {
-	id: 1,
+	_id: "1",
+	href:"/saalbach",
 	meta: {
 		headerClasses: 'text-blue-900',
 		bgClasses: 'bg-gradient-to-b from-blue-100/80 to-blue-300 shadow-md border-blue-200',
