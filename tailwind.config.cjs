@@ -16,8 +16,11 @@ module.exports = {
                 'avocado-1': "url('/images/avocado.jpg')",
                 'citrus-1': "url('/images/citrus.jpg')",
                 'marrionberry-1': "url('/images/marrionberry.jpg')",
-                frame: "url('/svg/frame.svg')",
-                'frame-1': "url('/svg/frame-w.svg')"
+                'frame': "url('/svg/frame.svg')",
+                'frame-1': "url('/svg/frame-w.svg')",
+                'dennis-1': "url('/images/IMG_2609.jpg')",
+                'dennis-2': "url('/images/IMG_2712.JPG')",
+                'rectory-house': "url('/images/rectory-house.webp')",
             },
             fontFamily: {
                 paytone: ["'Paytone One'", 'sans-serif']
