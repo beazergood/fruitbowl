@@ -6,7 +6,7 @@
 	export let showModal = false;
 </script>
 
-<aside class="absolute w-1/3 h-full bg-gray-200 border-r-2 shadow-lg z-10" class:open>
+<aside class="absolute w-2/3 h-full bg-gray-200 border-r-2 shadow-lg z-10" class:open>
 	<nav class="p-12 text-xl flex flex-col justify-between h-full">
 		<div>
 			<a class="block" href="/saalbach">⛷ Saalbach</a>
@@ -29,11 +29,11 @@
 
 <style>
 	aside {
-		right: -100%;
-		transition: right 0.3s ease-in-out;
+		left: -100%;
+		transition: left 0.3s ease-in-out;
 	}
 
 	.open {
-		right: 0;
+		left: 0;
 	}
 </style>
