@@ -1,12 +1,14 @@
 export type Event = {
-	id: string;
+	_id: string;
+	href?: string;
+	_created?: string;
 	info: Info;
-	location: Location;
-	accommodation: Accommodation;
-	meta: meta;
-	itinerary: Itinerary;
-	transport: Transportation;
-	geoWaypoints: GeoWaypoints;
+	location?: Location;
+	accommodation?: Accommodation;
+	meta?: Meta;
+	itinerary?: Itinerary;
+	transport?: Transportation;
+	geoWaypoints?: GeoWaypoints;
 };
 
 export type Info = {
@@ -30,7 +32,7 @@ export type Accommodation = {
 	}
 };
 
-export type meta = {
+export type Meta = {
 	bgImageClasses: string[];
 	
 	bgClasses: string;
@@ -95,3 +97,8 @@ export type GeoWaypoints = {
 	mapStartPoint: string;
 	features: Waypoint[];
 };
+
+export type Video = {
+	src: string;
+	meta: Meta
+}
