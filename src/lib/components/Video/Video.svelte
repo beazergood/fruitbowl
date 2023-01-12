@@ -1,9 +1,8 @@
 <script lang="ts">
-	import type { meta } from 'src/types';
+	import type { Video } from 'src/types';
 	import Card from '../Card/Card.svelte';
 
-	export let video: { src: string, meta: any };
-	
+	export let video: Video;
 </script>
 
 <Card meta={video.meta}>
