@@ -33,18 +33,18 @@ const Template = ({ onAddItems, ...args }) => ({
 
 export const Empty: Story = Template.bind({});
 Empty.args = {
-	meta: { borderClass: 'border-green-200' },
 	data: {
 		title: '🎯 My Itinerary',
+		meta: { borderClass: 'border-green-200', bgClasses: 'bg-white/90' },
         items: []
 	}
 };
 
 export const Default: Story = {
 	args: {
-		meta: { borderClass: 'border-red-200' },
 		data: {
 			title: '🎯 My Itinerary',
+			meta: { borderClass: 'border-red-200', bgClasses: 'bg-white/90' },
 			items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 4']
 		}
 	}
