@@ -15,5 +15,6 @@
 	<div class="flex flex-col ">
 		<h1>Homepage</h1>
 		<EventList data={events} />
+		<a href="/winners">Winners</a>
 	</div>
 </div>
