@@ -5,16 +5,13 @@
 	import Card from '../Card/Card.svelte';
 	import type { Transportation } from './$types';
 
+	// Transportation data prop for the component
 	export let data: Transportation;
 	export let eventId: string;
 	export let showTransportForm = true;
 
 	let outboundDate = '';
-	let outboundTakeoff = '';
 	let outboundLanding = '';
-
-	let inboundDate = '';
-	let inboundTakeoff = '';
 	let inboundLanding = '';
 
 	function setDateStrings() {
