@@ -12,7 +12,7 @@ const data = {
 		startDate: '2023-02-17',
 		endDate: '2023-02-20',
 		meta: {
-			bgClasses: 'bg-white/80 shadow-md',
+			bgClasses: 'bg-yellow-100/80 shadow-md',
 			headerClasses:
 				'font-paytone text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-yellow-600 text-orange-400'
 		}
@@ -27,7 +27,7 @@ const data = {
 		timezone: 'America%2FLos_Angeles',
 		temperatureGuage: 'F',
 		meta: {
-			bgClasses: 'bg-white/80 shadow-md border-white rounded-md'
+			bgClasses: 'bg-yellow-100/80 shadow-md border-white rounded-md'
 		}
 	},
 	geoWaypoints: {
@@ -86,37 +86,37 @@ const data = {
 	},
 	transport: {
 		title: '✈️ Transport',
-		other: 'Coming Soon',
-		// outbound: {
-		// 	from: {
-		// 		date: '2023-02-16',
-		// 		time: '12:20',
-		// 		city: 'London',
-		// 		airport: 'LHR T3',
-		// 		flight: 'VS 7'
-		// 	},
-		// 	to: {
-		// 		date: '2023-02-16',
-		// 		time: '15:35',
-		// 		city: 'Los Angeles',
-		// 		airport: 'LAX'
-		// 	}
-		// },
-		// inbound: {
-		// 	from: {
-		// 		date: '2023-02-20',
-		// 		time: '22:10',
-		// 		city: 'Los Angeles',
-		// 		airport: 'LAX',
-		// 		flight: 'VS 24'
-		// 	},
-		// 	to: {
-		// 		date: '2023-02-21',
-		// 		time: '16:25',
-		// 		city: 'London',
-		// 		airport: 'LHR T3'
-		// 	}
-		// },
+		// other: 'Coming Soon',
+		outbound: {
+			from: {
+				date: '2023-02-16',
+				time: '12:20',
+				city: 'London',
+				airport: 'LHR T3',
+				flight: 'VS 7'
+			},
+			to: {
+				date: '2023-02-16',
+				time: '15:35',
+				city: 'Los Angeles',
+				airport: 'LAX'
+			}
+		},
+		inbound: {
+			from: {
+				date: '2023-02-20',
+				time: '22:10',
+				city: 'Los Angeles',
+				airport: 'LAX',
+				flight: 'VS 24'
+			},
+			to: {
+				date: '2023-02-21',
+				time: '16:25',
+				city: 'London',
+				airport: 'LHR T3'
+			}
+		},
 		meta: {
 			bgClasses: 'bg-white shadow-md border-none'
 		}
@@ -125,12 +125,12 @@ const data = {
 		title: '🏡 Accommodation',
 		name: 'Desert Oasis',
 		description:
-			'Spacious private home with pool and spa, fire pit, waterfall, putting green, built in barbecue...',
+			'Spacious private home with pool 🏊🏻‍♂️ 🎱 spa 🧖🏻 fire pit 🔥 waterfall 💦 putting green ⛳️  barbecue 🍗',
 		url: 'https://www.airbnb.co.uk/rooms/44003044?adults=8&location=Palm%20Springs%2C%20CA&check_in=2023-02-17&check_out=2023-02-20&federated_search_id=2ca6f13f-d1c2-4dc2-8e2a-71446bba50ea&source_impression_id=p3_1671755961_%2FpVKSXwlIuRsC%20N9&_set_bev_on_new_domain=1672532399_ZjE0MjAyZmQ0Njhj',
 		location: {
 			lat: 47.4,
 			lng: 12.7,
-			city: 'Saalbach'
+			city: 'Palm Desert'
 		},
 		meta: {
 			bgClasses: 'bg-white shadow-md border-none'
@@ -141,15 +141,11 @@ const data = {
 		items: [
 			{
 				date: '2/17 pm',
-				description: '🛬 LAX'
-			},
-			{
-				date: '2/17 pm',
-				description: ' 🚙 to Palm Desert'
+				description: '🛬 arrive LAX, 🚙 to Palm Desert 🌴',
 			},
 			{
 				date: '2/18 am',
-				description: '🏌🏻 @ Shadow Ridge (tee times TBD)',
+				description: '🏌🏻 @ Shadow Ridge 9:00',
 				url: 'http://www.golfshadowridge.com/course/'
 			},
 			{
