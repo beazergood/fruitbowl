@@ -1,10 +1,16 @@
 <script lang="ts">
 	import { DateTime } from 'luxon';
+	import { createEventDispatcher } from 'svelte';
+	import { Edit2Icon, CheckIcon } from 'svelte-feather-icons';
+	import { DateInput } from 'date-picker-svelte';
 
 	import Card from '../Card/Card.svelte';
 	import type { Transportation } from './$types';
 
+	// Transportation data prop for the component
 	export let data: Transportation;
+	export let eventId: string;
+	export let showTransportForm = false;
 
 	let outboundDate = '';
 	let outboundTakeoff = '';
@@ -32,8 +38,11 @@
 	</h1>
 	<div slot="content" class="px-2 pb-2">
 		{#if data.other}
-			<h1 class="text-center">Coming Soon</h1>
-		{:else}
+			<p class="text-sm">
+				{data.other}
+			</p>
+		{/if}
+		{#if data.outbound && data.inbound && !showTransportForm}
 			<div class="flex justify-between">
 				<p class="text-xs font-bold">Outbound</p>
 				<div class="text-sm w-28 flex justify-around">
@@ -72,3 +81,30 @@
 		{/if}
 	</div>
 </Card>
+
+<style>
+	:root {
+		--date-input-width: 100%;
+	}
+
+	::-webkit-input-placeholder {
+		/* WebKit browsers */
+		text-transform: none;
+	}
+	:-moz-placeholder {
+		/* Mozilla Firefox 4 to 18 */
+		text-transform: none;
+	}
+	::-moz-placeholder {
+		/* Mozilla Firefox 19+ */
+		text-transform: none;
+	}
+	:-ms-input-placeholder {
+		/* Internet Explorer 10+ */
+		text-transform: none;
+	}
+	::placeholder {
+		/* Recent browsers */
+		text-transform: none;
+	}
+</style>
