@@ -141,15 +141,11 @@ const data = {
 		items: [
 			{
 				date: '2/17 pm',
-				description: '🛬 LAX'
-			},
-			{
-				date: '2/17 pm',
-				description: ' 🚙 to Palm Desert'
+				description: '🛬 arrive LAX, 🚙 to Palm Desert 🌴',
 			},
 			{
 				date: '2/18 am',
-				description: '🏌🏻 @ Shadow Ridge (tee times TBD)',
+				description: '🏌🏻 @ Shadow Ridge 9:00',
 				url: 'http://www.golfshadowridge.com/course/'
 			},
 			{
