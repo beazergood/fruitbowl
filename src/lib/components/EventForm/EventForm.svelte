@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { v4 as uuidv4 } from 'uuid';
-
+	import { DateInput } from 'date-picker-svelte';
 	import { myStore, addToStore } from '../../store';
 
 	let events: any;
@@ -12,25 +12,22 @@
 
 	let name: string;
 	let emoji: string;
-	let startDate: string;
-	let endDate: string;
+	let startDate: Date;
+	let endDate: Date;
 
 	function handleSubmit() {
 		const formData = {
 			_id: uuidv4(),
 			_created: new Date(),
-			name,
-			emoji,
-			startDate,
-			endDate
+			info: {
+				name,
+				emoji,
+				startDate,
+				endDate
+			}
 		};
-		console.log('formData: ', formData);
-		console.log('events length: ', events.length);
 
-		const updatedEvents = [...events, formData];
-		console.log('updated events array: ', updatedEvents);
-
-		addToStore(updatedEvents);
+		addToStore(formData);
 	}
 </script>
 
@@ -50,20 +47,19 @@
 		id="emoji"
 		bind:value={emoji}
 	/>
-	<input
-		type="text"
-		class="form-input border-gray-300 rounded-md"
-		placeholder="Start Date"
-		id="startDate"
-		bind:value={startDate}
-	/>
-	<input
-		type="text"
-		class="form-input border-gray-300 rounded-md"
-		placeholder="End Date"
-		id="endDate"
-		bind:value={endDate}
-	/>
 
-	<button type="submit">Save</button>
+	<DateInput bind:value={startDate} format="yyyy-MM-dd" />
+
+	<DateInput bind:value={endDate} format="yyyy-MM-dd" />
+
+	<button class="pointer-cursor p-2 m-2 border-2 border-blue-400 rounded-lg" type="submit"
+		>Save</button
+	>
 </form>
+
+<style>
+	:root{
+
+		--date-input-width: 100%;
+	}
+</style>
