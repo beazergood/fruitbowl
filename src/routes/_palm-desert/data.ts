@@ -86,37 +86,37 @@ const data = {
 	},
 	transport: {
 		title: '✈️ Transport',
-		other: 'Coming Soon',
-		// outbound: {
-		// 	from: {
-		// 		date: '2023-02-16',
-		// 		time: '12:20',
-		// 		city: 'London',
-		// 		airport: 'LHR T3',
-		// 		flight: 'VS 7'
-		// 	},
-		// 	to: {
-		// 		date: '2023-02-16',
-		// 		time: '15:35',
-		// 		city: 'Los Angeles',
-		// 		airport: 'LAX'
-		// 	}
-		// },
-		// inbound: {
-		// 	from: {
-		// 		date: '2023-02-20',
-		// 		time: '22:10',
-		// 		city: 'Los Angeles',
-		// 		airport: 'LAX',
-		// 		flight: 'VS 24'
-		// 	},
-		// 	to: {
-		// 		date: '2023-02-21',
-		// 		time: '16:25',
-		// 		city: 'London',
-		// 		airport: 'LHR T3'
-		// 	}
-		// },
+		// other: 'Coming Soon',
+		outbound: {
+			from: {
+				date: '2023-02-16',
+				time: '12:20',
+				city: 'London',
+				airport: 'LHR T3',
+				flight: 'VS 7'
+			},
+			to: {
+				date: '2023-02-16',
+				time: '15:35',
+				city: 'Los Angeles',
+				airport: 'LAX'
+			}
+		},
+		inbound: {
+			from: {
+				date: '2023-02-20',
+				time: '22:10',
+				city: 'Los Angeles',
+				airport: 'LAX',
+				flight: 'VS 24'
+			},
+			to: {
+				date: '2023-02-21',
+				time: '16:25',
+				city: 'London',
+				airport: 'LHR T3'
+			}
+		},
 		meta: {
 			bgClasses: 'bg-white shadow-md border-none'
 		}
@@ -141,15 +141,11 @@ const data = {
 		items: [
 			{
 				date: '2/17 pm',
-				description: '🛬 LAX'
-			},
-			{
-				date: '2/17 pm',
-				description: ' 🚙 to Palm Desert'
+				description: '🛬 arrive LAX, 🚙 to Palm Desert 🌴',
 			},
 			{
 				date: '2/18 am',
-				description: '🏌🏻 @ Shadow Ridge (tee times TBD)',
+				description: '🏌🏻 @ Shadow Ridge 9:00',
 				url: 'http://www.golfshadowridge.com/course/'
 			},
 			{
