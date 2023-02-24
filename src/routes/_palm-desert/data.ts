@@ -125,7 +125,7 @@ const data = {
 		title: '🏡 Accommodation',
 		name: 'Desert Oasis',
 		description:
-			'Spacious private home with pool 🏊🏻‍♂️ 🎱 spa 🧖🏻 fire pit 🔥 waterfall 💦 putting green ⛳️  barbecue 🍗',
+			'Spacious private home with pool 🏊🏻‍♂️, spa 🧖🏻, fire pit 🔥, waterfall 💦, putting green ⛳️,  barbecue 🍗',
 		url: 'https://www.airbnb.co.uk/rooms/44003044?adults=8&location=Palm%20Springs%2C%20CA&check_in=2023-02-17&check_out=2023-02-20&federated_search_id=2ca6f13f-d1c2-4dc2-8e2a-71446bba50ea&source_impression_id=p3_1671755961_%2FpVKSXwlIuRsC%20N9&_set_bev_on_new_domain=1672532399_ZjE0MjAyZmQ0Njhj',
 		location: {
 			lat: 47.4,
