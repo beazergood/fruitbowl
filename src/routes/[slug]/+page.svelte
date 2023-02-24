@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Dashboard from '../../lib/components/Dashboard/Dashboard.svelte';
-	import { myStore } from '../../lib/store';
+	import { eventsStore } from '../../lib/store';
 
 	let data = {};
 
-	myStore.subscribe((d) => {
+	eventsStore.subscribe((d) => {
 		data = d[1];
 	});
 </script>
