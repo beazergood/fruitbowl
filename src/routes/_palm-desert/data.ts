@@ -88,12 +88,12 @@ const data = {
 		title: '✈️ Transport',
 		// other: 'Coming Soon',
 		outbound: {
+			flightNumber: 'VS 0007',
 			from: {
 				date: '2023-02-16',
 				time: '12:20',
 				city: 'London',
 				airport: 'LHR T3',
-				flight: 'VS 7'
 			},
 			to: {
 				date: '2023-02-16',
@@ -103,12 +103,12 @@ const data = {
 			}
 		},
 		inbound: {
+			flightNumber: 'VS 24',
 			from: {
 				date: '2023-02-20',
 				time: '22:10',
 				city: 'Los Angeles',
 				airport: 'LAX',
-				flight: 'VS 24'
 			},
 			to: {
 				date: '2023-02-21',
