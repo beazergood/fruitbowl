@@ -56,7 +56,7 @@
 
 			<!-- Transport widget -->
 			{#if data.transport}
-				<Transport data={data.transport} />
+				<Transport data={data.transport} eventId={data._id} />
 			{/if}
 			<!-- Accomodation widget -->
 			<Accommodation data={data.accommodation} />
