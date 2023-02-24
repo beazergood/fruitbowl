@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { myStore } from '../lib/store';
+	import { eventsStore } from '../lib/store';
 	import EventList from '../lib/components/EventList/EventList.svelte';
 	import type { Event } from './$types';
 
 	let events: Event[] = [];
 
-	myStore.subscribe((data) => {
+	eventsStore.subscribe((data) => {
 		console.log('events subscribe: ', data);
 		events = data;
 	});
