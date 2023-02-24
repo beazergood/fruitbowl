@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { v4 as uuidv4 } from 'uuid';
 	import { DateInput } from 'date-picker-svelte';
-	import { myStore, addToStore } from '../../store';
+	import { eventsStore, addEventToStore } from '../../store';
 
 	let events: any;
 
-	myStore.subscribe((data) => {
+	eventsStore.subscribe((data) => {
 		console.log('events subscribe: ', data);
 		events = data;
 	});
@@ -27,7 +27,7 @@
 			}
 		};
 
-		addToStore(formData);
+		addEventToStore(formData);
 	}
 </script>
 
