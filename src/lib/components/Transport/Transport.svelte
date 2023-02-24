@@ -1,16 +1,14 @@
 <script lang="ts">
 	import { DateTime } from 'luxon';
-	import { createEventDispatcher } from 'svelte';
-	import { Edit2Icon, CheckIcon } from 'svelte-feather-icons';
+	import { EyeIcon, EyeOffIcon, CheckIcon } from 'svelte-feather-icons';
 	import { DateInput } from 'date-picker-svelte';
-
+	import { setTransportationForEvent } from '../../store';
 	import Card from '../Card/Card.svelte';
 	import type { Transportation } from './$types';
 
-	// Transportation data prop for the component
 	export let data: Transportation;
 	export let eventId: string;
-	export let showTransportForm = false;
+	export let showTransportForm = true;
 
 	let outboundDate = '';
 	let outboundTakeoff = '';
@@ -82,6 +80,8 @@
 			}
 		};
 		console.log('formData', formData);
+		// find the event in local storage and update the transport property
+		setTransportationForEvent(formData);
 	}
 </script>
 
@@ -90,6 +90,15 @@
 		{data.title}
 	</h1>
 	<div slot="content" class="px-2 pb-2">
+		<div>
+			<button on:click={() => (showTransportForm = !showTransportForm)}>
+				{#if showTransportForm}
+					<EyeOffIcon size="22" class="color-red-400" />
+				{:else}
+					<EyeIcon size="22" class="color-red-400" />
+				{/if}
+			</button>
+		</div>
 		{#if data.other}
 			<p class="text-sm">
 				{data.other}
@@ -108,8 +117,8 @@
 				<p>{data.outbound.from.airport} > {data.outbound.to.airport}</p>
 				<div>
 					<p>{outboundTakeoff} - {outboundLanding}</p>
-					{#if data.outbound.from.flight}
-						<p class="text-xs text-center">{data.outbound.from.flight}</p>
+					{#if data.outbound.flightNumber}
+						<p class="text-xs text-center">{data.outbound.flightNumber}</p>
 					{/if}
 				</div>
 			</div>
@@ -126,8 +135,8 @@
 				<p>{data.inbound.from.airport} > {data.inbound.to.airport}</p>
 				<div>
 					<p>{inboundTakeoff} - {inboundLanding}</p>
-					{#if data.inbound.from.flight}
-						<p class="text-xs text-center">{data.inbound.from.flight}</p>
+					{#if data.inbound.flightNumber}
+						<p class="text-xs text-center">{data.inbound.flightNumber}</p>
 					{/if}
 				</div>
 			</div>
@@ -146,7 +155,7 @@
 						><CheckIcon size="22" class="color-red-400" /></button
 					>
 				</div>
-				<p>You can add your flight details here</p>
+				<p>Add your flight details below</p>
 				<form on:submit|preventDefault={handleSubmit} class="gap-2 flex flex-col mt-4">
 					<h3 class="text-md">Outbound</h3>
 
