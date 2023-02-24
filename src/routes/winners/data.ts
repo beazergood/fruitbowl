@@ -3,7 +3,7 @@ const data = {
     items: [
         {
             emoji: '🫐',
-            team: 'Marrionberry',
+            team: 'Marionberry',
             year: 2019,
             venue: 'Ventura County, CA'
         },
@@ -26,10 +26,10 @@ const data = {
             venue: 'Pandemic'
         },
         {
-            team: 'TBD',
+            team: 'Marionberry',
             year: 2023,
             venue: 'Palm Desert, CA',
-            emoji: ''
+            emoji: '🫐'
         }
     ]
 }
