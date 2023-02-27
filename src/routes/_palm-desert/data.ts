@@ -4,7 +4,7 @@ const data = {
 	meta: {
 		headerClasses: 'text-green-900',
 		bgClasses: 'bg-gradient-to-b from-yellow-200/80 to-green-200 shadow-sm border-green-300',
-		bgImageClasses: ['bg-golf-1', 'bg-golf-2', 'bg-golf-3', 'bg-golf-7']
+		bgImageClasses: ['bg-golf-8']
 	},
 	info: {
 		name: 'Fruitbowl 2023',
@@ -12,7 +12,7 @@ const data = {
 		startDate: '2023-02-17',
 		endDate: '2023-02-20',
 		meta: {
-			bgClasses: 'bg-yellow-100/80 shadow-md',
+			bgClasses: 'bg-yellow-100/30 shadow-md',
 			headerClasses:
 				'font-paytone text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-yellow-600 text-orange-400'
 		}
@@ -27,7 +27,7 @@ const data = {
 		timezone: 'America%2FLos_Angeles',
 		temperatureGuage: 'F',
 		meta: {
-			bgClasses: 'bg-yellow-100/80 shadow-md border-white rounded-md'
+			bgClasses: 'bg-yellow-100/30 shadow-md border-white rounded-md'
 		}
 	},
 	geoWaypoints: {
@@ -155,7 +155,7 @@ const data = {
 			},
 			{
 				date: '2/19 pm',
-				description: '🏌🏻 @ Classic Club - possible replay deal for additional 9 or 18 in afternoon'
+				description: '🏌🏻 @ Classic Club - FruitCup'
 			},
 			{
 				date: '2/20 am',
