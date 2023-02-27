@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
-import saalbach from '../routes/_saalbach/data';
+import saalbach from '../routes/saalbach/data';
 import palmDesert from '../routes/palm-desert/data';
-import princes from '../routes/_princes/data';
+import princes from '../routes/princes/data';
 
 /***
  * creates a store in localstorage and adds default trip data to it (saalbach, palmDesert, princes)

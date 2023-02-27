@@ -3,8 +3,6 @@
 	import data from './data';
 </script>
 
-<div class="flex justify-center h-screen">
-	<div class="flex flex-col">
-        <Dashboard data={data} />
-	</div>
+<div class="grid grid-cols-1">
+	<Dashboard {data} />
 </div>
