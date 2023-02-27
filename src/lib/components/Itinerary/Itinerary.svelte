@@ -26,7 +26,7 @@
 						{item.date}
 						{item.description}
 						{#if item.url}
-							<a href={data.url} target="_blank" class=" underline cursor-pointer">Website</a>
+							<a href={item.url} target="_blank" rel="noreferrer" class="underline cursor-pointer">Website</a>
 						{/if}
 					</li>
 				{/each}
