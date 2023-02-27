@@ -14,7 +14,7 @@ const data = {
 		meta: {
 			bgClasses: 'bg-yellow-100/30 shadow-md',
 			headerClasses:
-				'font-paytone text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-yellow-600 text-orange-400'
+				'font-paytone text-white bg-clip-text'
 		}
 	},
 	location: {
