@@ -10,9 +10,14 @@
 	export let showTransportForm = true;
 
 	let outboundDate = '';
+	let outboundTakeoff = '';
 	let outboundLanding = '';
+	
+	let inboundDate = '';
+	let inboundTakeoff = '';
 	let inboundLanding = '';
-
+	
+	
 	function setDateStrings() {
 		outboundDate = DateTime.fromISO(data.outbound.from.date).toFormat('dd MMM yy');
 		outboundTakeoff = DateTime.fromISO(data.outbound.from.time).toFormat('HH:mm');
