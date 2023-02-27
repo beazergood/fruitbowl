@@ -1,17 +1,22 @@
 <script lang="ts">
 	import Dashboard from '../../lib/components/Dashboard/Dashboard.svelte';
 	import { eventsStore } from '../../lib/store';
+	import { onMount } from 'svelte';
 
 	let data = {};
 
-	eventsStore.subscribe((d) => {
-		data = d[1];
+	onMount(async () => {
+		console.log('eventsStore', eventsStore);
+		eventsStore.subscribe((d) => {
+			data = d[1];
+			console.log('data', d);
+		});
 	});
 </script>
 
 <head>
 	<!-- {#if data._id === '1'} -->
-		<script src="https://app.embed.im/snow.js" defer></script>
+	<!-- <script src="https://app.embed.im/snow.js" defer></script> -->
 	<!-- {/if} -->
 </head>
 
