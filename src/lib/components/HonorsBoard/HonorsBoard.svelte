@@ -15,7 +15,7 @@
 	let confettiCannon = false;
 	let showEmoji = false;
 	let randomNum = 0;
-	let bgClasses = ['bg-avocado-1', 'bg-citrus-1', 'bg-marrionberry-1'];
+	let bgClasses = ['bg-avocado-1', 'bg-citrus-1', 'bg-marionberry-1'];
 	let bgColors = [['rgb(122, 185, 125)'], ['rgb(234, 179, 8)'], ['rgb(34, 21, 78)']];
 	onMount(async () => {
 		setBackground();
