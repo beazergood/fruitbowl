@@ -6,16 +6,21 @@
 
 	export let data: Info;
 
-	let diffInDays: number | string = '...';
+	let diffInDaysTilStart: number;
+	let diffInDaysFromEnd: number;
 	let displayDates = '';
 	let futureEvent = true;
 
 	onMount(async () => {
-		var end = DateTime.fromISO(data.startDate);
-		var start = DateTime.now();
-		const diff = end.diff(start, 'days').toObject().days ?? 0;
-		diffInDays = Math.floor(diff);
-		futureEvent = diffInDays > 0;
+		const start = DateTime.fromISO(data.startDate);
+		const end = DateTime.fromISO(data.endDate);
+		const now = DateTime.now();
+		const diff = start.diff(now, 'days').toObject().days ?? 0;
+		
+		diffInDaysTilStart = Math.floor(diff);
+		futureEvent = diffInDaysTilStart > 0;
+		diffInDaysFromEnd = Math.floor(end.diff(DateTime.now(), 'days').toObject().days ?? 0);
+		
 		const startDate = DateTime.fromISO(data.startDate).toFormat('dd MMM');
 		const endDate = DateTime.fromISO(data.endDate).toFormat('dd MMM yy');
 		displayDates = `${startDate} - ${endDate}`;
@@ -28,10 +33,10 @@
 		<h1 class="text-3xl font-bold text-center text-gray-700 -mt-4">
 			{#if futureEvent}
 				<span class="text-lg mr-2"> In </span>
-				{diffInDays} Days
+				{diffInDaysTilStart} Days
 			{/if}
 			{#if !futureEvent}
-				{Math.abs(diffInDays)} days ago
+				{Math.abs(diffInDaysFromEnd)} days ago
 			{/if}
 		</h1>
 		<h3 class="text-xl font-bold text-center text-gray-700">{displayDates}</h3>
