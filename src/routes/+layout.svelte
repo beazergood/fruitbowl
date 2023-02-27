@@ -7,6 +7,6 @@
 </script>
 
 <Sidebar bind:open />
-<Navbar bind:sidebar={open} />
+<!-- <Navbar bind:sidebar={open} /> -->
 
 <slot />
