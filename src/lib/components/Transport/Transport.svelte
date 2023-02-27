@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { DateTime } from 'luxon';
-	import { EyeIcon, EyeOffIcon, CheckIcon } from 'svelte-feather-icons';
-	import { DateInput } from 'date-picker-svelte';
-	import { setTransportationForEvent } from '../../store';
+	import { EyeIcon, EyeOffIcon } from 'svelte-feather-icons';
+	import TransportForm from '../TransportForm/TransportForm.svelte';
 	import Card from '../Card/Card.svelte';
 	import type { Transportation } from './$types';
 
@@ -29,60 +28,7 @@
 	}
 	if (data.outbound && data.inbound) setDateStrings();
 
-	let outboundTakeoffDate: Date;
-	let outboundFlightNumber: string;
-	let outboundTakeoffTime: string;
-	let outboundTakeoffAirport: string;
-
-	let outboundLandingDate: Date;
-	let outboundLandingTime: string;
-	let outboundLandingAirport: string;
-
-	let inboundTakeoffDate: Date;
-	let inboundFlightNumber: string;
-	let inboundTakeoffTime: string;
-	let inboundTakeoffAirport: string;
-
-	let inboundLandingDate: Date;
-	let inboundLandingTime: string;
-	let inboundLandingAirport: string;
-
-	function handleSubmit() {
-		const formData = {
-			_eventId: eventId,
-			transportation: {
-				outbound: {
-					from: {
-						date: outboundTakeoffDate,
-						time: outboundTakeoffTime,
-						airport: outboundTakeoffAirport
-					},
-					to: {
-						date: outboundLandingDate,
-						time: outboundLandingTime,
-						airport: outboundLandingAirport
-					},
-					flightNumber: outboundFlightNumber
-				},
-				inbound: {
-					from: {
-						date: inboundTakeoffDate,
-						time: inboundTakeoffTime,
-						airport: inboundTakeoffAirport
-					},
-					to: {
-						date: inboundTakeoffDate,
-						time: inboundTakeoffTime,
-						airport: inboundTakeoffAirport
-					},
-					flightNumber: inboundFlightNumber
-				}
-			}
-		};
-		console.log('formData', formData);
-		// find the event in local storage and update the transport property
-		setTransportationForEvent(formData);
-	}
+	
 </script>
 
 <Card meta={data.meta}>
@@ -149,146 +95,12 @@
 			</div>
 		{/if}
 		{#if showTransportForm}
-			<div class="flex flex-col">
-				<div class="flex flex-row-reverse">
-					<button on:click={() => (showTransportForm = false)}
-						><CheckIcon size="22" class="color-red-400" /></button
-					>
-				</div>
-				<p>Add your flight details below</p>
-				<form on:submit|preventDefault={handleSubmit} class="gap-2 flex flex-col mt-4">
-					<h3 class="text-md">Outbound</h3>
-
-					<div class="flex flex-row justify-between items-start">
-						<div class="flex flex-col gap-2">
-							<div class="flex">
-								<p class="mr-2">🛫</p>
-								<DateInput
-									bind:value={outboundTakeoffDate}
-									format="yyyy-MM-dd"
-									placeholder="Takeoff"
-								/>
-							</div>
-							<input
-								type="time"
-								class="form-input border-gray-300 rounded-md uppercase"
-								placeholder="Time"
-								id="outboundFlightTime"
-								bind:value={outboundTakeoffTime}
-							/>
-							<input
-								type="text"
-								class="form-input border-gray-300 rounded-md uppercase"
-								placeholder="Airport code"
-								id="outboundFlightAirport"
-								bind:value={outboundTakeoffAirport}
-							/>
-							<input
-								type="text"
-								class="form-input border-gray-300 rounded-md uppercase"
-								placeholder="Flight #"
-								id="outboundFlight"
-								bind:value={outboundFlightNumber}
-							/>
-						</div>
-						<div class="flex flex-col gap-2">
-							<div class="flex">
-								<p class="mr-2">🛬</p>
-								<DateInput
-									bind:value={outboundLandingDate}
-									format="yyyy-MM-dd"
-									placeholder="Landing"
-								/>
-							</div>
-							<input
-								type="time"
-								class="form-input border-gray-300 rounded-md"
-								placeholder="Time"
-								id="outboundFlightTime"
-								bind:value={outboundLandingTime}
-							/>
-							<input
-								type="text"
-								class="form-input border-gray-300 rounded-md uppercase"
-								placeholder="Airport code"
-								id="outboundFlightAirport"
-								bind:value={outboundLandingAirport}
-							/>
-						</div>
-					</div>
-
-					<hr class="my-2" />
-
-					<h3 class="text-md">Inbound</h3>
-					<div class="flex flex-row justify-between items-start">
-						<div class="flex flex-col gap-2">
-							<div class="flex">
-								<p class="mr-2">🛫</p>
-								<DateInput
-									bind:value={inboundTakeoffDate}
-									format="yyyy-MM-dd"
-									placeholder="Takeoff"
-								/>
-							</div>
-							<input
-								type="time"
-								class="form-input border-gray-300 rounded-md"
-								placeholder="Time"
-								id="inboundFlightTime"
-								bind:value={inboundTakeoffTime}
-							/>
-							<input
-								type="text"
-								class="form-input border-gray-300 rounded-md uppercase"
-								placeholder="Airport code"
-								id="inboundFlightAirport"
-								bind:value={inboundTakeoffAirport}
-							/>
-							<input
-								type="text"
-								class="form-input border-gray-300 rounded-md uppercase"
-								placeholder="Flight #"
-								id="inboundFlight"
-								bind:value={inboundFlightNumber}
-							/>
-						</div>
-						<div class="flex flex-col gap-2">
-							<div class="flex">
-								<p class="mr-2">🛬</p>
-								<DateInput
-									bind:value={inboundLandingDate}
-									format="yyyy-MM-dd"
-									placeholder="Landing"
-								/>
-							</div>
-							<input
-								type="time"
-								class="form-input border-gray-300 rounded-md"
-								placeholder="Time"
-								id="inboundFlightTime"
-								bind:value={inboundLandingTime}
-							/>
-							<input
-								type="text"
-								class="form-input border-gray-300 rounded-md uppercase"
-								placeholder="Airport code"
-								id="inboundFlightAirport"
-								bind:value={inboundLandingAirport}
-							/>
-						</div>
-					</div>
-					<button type="submit" class="p-2 border-2 border-green-400 rounded-md">Submit</button>
-				</form>
-			</div>
+			<TransportForm {eventId} {showTransportForm} />
 		{/if}
 	</div>
 </Card>
 
 <style>
-	:root {
-		--date-input-width: 100%;
-	}
-
 	::-webkit-input-placeholder {
 		/* WebKit browsers */
 		text-transform: none;
