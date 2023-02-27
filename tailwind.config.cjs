@@ -8,7 +8,7 @@ module.exports = {
                 'golf-2': "url('/images/IMG_4470.jpg')",
                 'golf-3': "url('/images/IMG_4476.jpg')",
                 'golf-7': "url('/images/IMG_4493.jpg')",
-                'golf-8': "url('/images/IMG_9181.jpg')",
+                'golf-8': "url('/images/IMG_7668-short.jpg')",
                 'princes-1': "url('/images/play-01.jpg')",
                 'princes-2': "url('/images/IMG_2802.jpeg')",
                 'princes-3': "url('/images/IMG_2762.jpeg')",
