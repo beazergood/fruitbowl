@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 import saalbach from '../routes/_saalbach/data';
-import palmDesert from '../routes/_palm-desert/data';
+import palmDesert from '../routes/palm-desert/data';
 import princes from '../routes/_princes/data';
 
 /***

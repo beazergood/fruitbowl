@@ -5,6 +5,6 @@
 
 <div class="flex justify-center h-screen">
 	<div class="flex flex-col">
-        <Dashboard data={data} />
+		<Dashboard {data} />
 	</div>
 </div>
