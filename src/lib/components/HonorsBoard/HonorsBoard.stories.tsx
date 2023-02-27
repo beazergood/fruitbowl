@@ -37,8 +37,8 @@ Default.args = {
 		title: '🏆 Past Champions',
 		items: [
             {
-                emoji: '🫐',
-                team: 'Marrionberry',
+                emoji: '🍇',
+                team: 'Marionberry',
                 year: 2019,
                 venue: 'Ventura County, CA'
             },
@@ -61,7 +61,8 @@ Default.args = {
                 venue: 'Pandemic'
             },
             {
-                team: 'TBD',
+                emoji: '🍇',
+                team: 'Marionberry',
                 year: 2023,
                 venue: 'Palm Desert, CA'
             }
