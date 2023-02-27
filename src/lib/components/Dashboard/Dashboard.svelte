@@ -76,6 +76,16 @@
 
 			<!-- Itinerary widget -->
 			<Itinerary data={data.itinerary} />
+
+			{#if data.showWinners}
+			
+				<a
+					class="text-center bg-white/80
+                my-2 border border-gray-300 rounded-md p-2"
+					href="/winners"
+					>Past Winners 🏆
+				</a>
+			{/if}
 		</div>
 	</div>
 </div>
