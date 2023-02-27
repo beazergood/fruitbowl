@@ -104,10 +104,22 @@ const data = {
 	itinerary: {
 		title: '🎯 Itinerary',
 		items: [
-			'5/5 - 🚙 to Chumleigh, 🍻 🎱 🕺🏻',
-			'5/6 - 🏄🏻‍♂️ @ xxx',
-			'5/7 - 🍻 brewery tour @ xxx',
-			'5/8 - 🚙 back home 🫣'
+			{
+				date: '5/5',
+				description: '🚙 to Chumleigh, 🍻 🎱 🕺🏻',
+			},
+			{
+				date: '6/5',
+				description: '🏄🏻‍♂️ @ xxx'
+			},
+			{
+				date: '7/5',
+				description: '🍻 brewery tour @ xxx'
+			},
+			{
+				date: '8/5',
+				description: '🚙 back home 🫣'
+			}
 		],
 		meta: {
 			bgClasses: 'bg-white shadow-md border-none'
